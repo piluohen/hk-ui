@@ -83,9 +83,7 @@ export default {
     list () {
       // 动态路由
       let router = this.router
-      console.log(router)
       return router.map(r => {
-        console.log(r.meta)
         let path = r.redirect || r.path
         let icon = r.meta.icon
         let title = r.meta.title || r.children[0].meta.title
@@ -197,16 +195,16 @@ export default {
           color: $nav-font-color;
           margin-right: 10px;
         }
-        &:hover {
-          color: $nav-font-color-hover !important;
-          background-color: transparent !important;
+        &:not(.is-disabled):hover {
+          color: $nav-font-color-hover;
+          background-color: transparent;
           i {
             color: $nav-font-color-hover;
           }
         }
-        &:active,
-        &:visited,
-        &:focus {
+        &:not(.is-disabled):active,
+        &:not(.is-disabled):visited,
+        &:not(.is-disabled):focus {
           color: $nav-font-color-hover;
           background-color: transparent;
           i {

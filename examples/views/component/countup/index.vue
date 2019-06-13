@@ -1,3 +1,5 @@
 <template lang="pug">
-  span countup栗子
+.countup-view
+  h4 countup栗子
+  hk-countup(:endVal="2000000")
 </template>
