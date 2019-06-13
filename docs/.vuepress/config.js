@@ -3,7 +3,7 @@ module.exports = {
   title: 'Hk-ui',
   description: 'Hk-ui',
   head: [
-    ['link', { rel: 'icon', href: '/image/favicon.ico' }],
+    ['link', { rel: 'icon', href: '/images/favicon.ico' }],
   ],
   themeConfig: {
     nav: [

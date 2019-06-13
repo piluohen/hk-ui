@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /image/vue.png
+heroImage: /images/vue.png
 actionText: 快速上手 →
 actionLink: /component/countup/
 features:
