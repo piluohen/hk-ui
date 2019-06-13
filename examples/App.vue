@@ -4,19 +4,29 @@
 </template>
 
 <script>
+import router from '@/router'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  name: 'app'
+  name: 'app',
+  computed: {
+    ...mapGetters(['addRouters']),
+    ...mapActions(['GenerateRoutes'])
+  },
+  mounted () {
+    this.$store.dispatch('GenerateRoutes', []).then(() => {
+      router.addRoutes(this.addRouters)
+    })
+  }
 }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@import "./assets/scss/index";
+html, body, #app{
+  width: 100%;
+  height: 100%;
+  background-color: $color-bg;
+  min-width: 1366px;
 }
 </style>
