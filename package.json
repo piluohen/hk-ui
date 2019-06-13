@@ -14,10 +14,8 @@
   "main": "lib/hk-ui.umd.min.js",
   "private": false,
   "scripts": {
-    "dev": "npm run serve",
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
     "lib": "vue-cli-service build --target lib --name hk-ui --dest lib packages/index.js"
   },
   "dependencies": {
@@ -44,9 +42,9 @@
     "eslint-plugin-vue": "^5.0.0",
     "node-sass": "^4.12.0",
     "pug": "^2.0.3",
-    "pug-html-loader": "^1.1.5",
     "pug-plain-loader": "^1.0.0",
     "sass-loader": "^7.1.0",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "vuepress": "^1.0.1"
   }
 }

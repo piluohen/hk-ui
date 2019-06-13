@@ -1,6 +1,6 @@
 data部署到预发:
   script:
-    - npm install
+    - npm install --registry=http://npm.hekr.me
     - npm run build
     - sh deploy.sh hekr-hangye/hk-ui-test/web
   tags:
@@ -12,9 +12,9 @@ data部署到预发:
     name: env-test
     url: https://hy.hekr.me/hk-ui-test/web/index.html
 
-data部署到线上:
+部署到线上:
   script:
-    - npm install
+    - npm install --registry=http://npm.hekr.me
     - npm run build
     - sh deploy.sh hekr-hangye/hk-ui/web
   tags:
