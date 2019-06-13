@@ -62,6 +62,25 @@ export default {
               }
             }
           ]
+        },
+        {
+          path: 'edit',
+          redirect: '/component/index/edit',
+          component: AsideLayout,
+          meta: {
+            icon: 'el-icon-setting'
+          },
+          children: [
+            {
+              path: '',
+              name: 'Edit',
+              component: () => import('views/component/edit'),
+              meta: {
+                icon: 'el-icon-setting',
+                title: 'edit 组件'
+              }
+            }
+          ]
         }
       ]
     }
