@@ -6,7 +6,7 @@ cache:
   script:
     - npm install --registry=http://npm.hekr.me
     - npm run build:test
-    - sh deploy.sh hekr-hangye/hk-ui-test/web
+    - sh -x deploy.sh hekr-hangye/hk-ui-test/web
   tags:
     - test
   only:
