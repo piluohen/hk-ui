@@ -1,5 +1,5 @@
 module.exports = {
-  base: '/',
+  base: './',
   title: 'Hk-ui',
   description: 'Hk-ui',
   head: [
