@@ -1,7 +1,9 @@
 import HkCountup from './hk-countup'
+import HkForm from './hk-form'
 
 export const install = (Vue) => {
   Vue.component(HkCountup.name, HkCountup)
+  Vue.component(HkForm.name, HkForm)
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
@@ -9,7 +11,8 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export {
-  HkCountup
+  HkCountup,
+  HkForm
 }
 
 export default install

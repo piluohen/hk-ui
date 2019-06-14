@@ -15,13 +15,14 @@ module.exports = {
       { text: '首页', link: '/' },
       {
         text: '组件',
-        link: '/component/countup'
+        link: '/component/hk-countup'
       }
     ],
     sidebar: {
       '/component/': [
-        'countup',
-        'table'
+        'hk-countup',
+        'table',
+        'hk-form'
       ]
     },
     lastUpdated: '最后更新',
