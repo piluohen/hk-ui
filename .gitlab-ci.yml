@@ -5,12 +5,12 @@ cache:
 部署到预发:
   script:
     - npm install --registry=http://npm.hekr.me
-    - npm run build
+    - npm run build:test
     - sh deploy.sh hekr-hangye/hk-ui-test/web
   tags:
     - test
   only:
-    - master
+    - dev
   when: manual
   environment:
     name: env-test
@@ -19,7 +19,7 @@ cache:
 部署到线上:
   script:
     - npm install --registry=http://npm.hekr.me
-    - npm run build
+    - npm run build:prod
     - sh deploy.sh hekr-hangye/hk-ui/web
   tags:
     - test

@@ -15,7 +15,8 @@
   "private": false,
   "scripts": {
     "dev": "vuepress dev docs",
-    "build": "vuepress build docs",
+    "build:test": "vuepress build docs",
+    "build:prod": "vuepress build docs",
     "lib": "vue-cli-service build --target lib --name hk-ui --dest lib packages/index.js"
   },
   "dependencies": {
