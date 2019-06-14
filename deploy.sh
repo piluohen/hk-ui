@@ -2,7 +2,7 @@
 
 bucket=$1
 
-cd $(dirname $0)/docs/.vuepress/dist/*
+cd $(dirname $0)/docs/.vuepress/dist
 
 aliyuncli oss Config --host oss-cn-shanghai.aliyuncs.com --accessid ${accessid} --accesskey ${accesskey}
 
