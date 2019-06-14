@@ -14,8 +14,9 @@
   "main": "lib/hk-ui.umd.min.js",
   "private": false,
   "scripts": {
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs",
+    "dev": "cross-env ENV=dev vuepress dev docs",
+    "build:test": "cross-env ENV=test vuepress build docs",
+    "build:prod": "cross-env ENV=prod vuepress build docs",
     "lib": "vue-cli-service build --target lib --name hk-ui --dest lib packages/index.js"
   },
   "dependencies": {
@@ -38,6 +39,7 @@
     "babel-eslint": "^10.0.1",
     "babel-plugin-dynamic-import-node": "^2.2.0",
     "babel-plugin-jsx-v-model": "^2.0.3",
+    "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "node-sass": "^4.12.0",
