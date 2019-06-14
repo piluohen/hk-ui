@@ -5,7 +5,6 @@ const baseMap = {
 }
 module.exports = {
   base: baseMap[process.env.ENV],
-  base: '/',
   title: 'Hk-ui',
   description: 'Hk-ui',
   head: [
