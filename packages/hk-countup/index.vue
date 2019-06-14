@@ -1,5 +1,5 @@
 <template lang="pug">
-  span
+  span.hk-countup
 </template>
 
 <script>
