@@ -1,5 +1,11 @@
+const baseMap = {
+  dev: '/',
+  test: '/hk-ui-test/web/',
+  prod: '/hk-ui/web/'
+}
 module.exports = {
-  base: '/hk-ui-test/web/',
+  base: baseMap[process.env.ENV],
+  base: '/',
   title: 'Hk-ui',
   description: 'Hk-ui',
   head: [
