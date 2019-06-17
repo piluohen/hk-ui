@@ -22,7 +22,8 @@ module.exports = {
       '/component/': [
         'hk-countup',
         'table',
-        'hk-form'
+        'hk-form',
+        'hk-city-picker'
       ]
     },
     lastUpdated: '最后更新',
