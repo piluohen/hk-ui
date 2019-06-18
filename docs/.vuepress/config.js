@@ -7,9 +7,7 @@ module.exports = {
   base: baseMap[process.env.ENV],
   title: 'Hk-ui',
   description: 'Hk-ui',
-  head: [
-    ['link', { rel: 'icon', href: '/images/favicon.ico' }],
-  ],
+  head: [['link', { rel: 'icon', href: '/images/favicon.ico' }]],
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
@@ -19,18 +17,18 @@ module.exports = {
       }
     ],
     sidebar: {
-      '/component/': [
-        'hk-countup',
-        'table',
-        'hk-form'
-      ]
+      '/component/': ['hk-countup', 'table', 'hk-editor', 'hk-form', 'hk-search']
     },
     lastUpdated: '最后更新',
     repo: 'http://gitlab.hekr.me/front-end/hk-ui',
-    repoLabel: 'GitLab',
+    repoLabel: 'GitLab'
   },
   markdown: {
     anchor: { permalink: true }
+  },
+  extendMarkdown: md => {
+    // 使用更多的 markdown-it 插件!
+    md.use(require('markdown-it-checkbox')).use(require('markdown-it-kbd'))
   },
   plugins: ['@vuepress/back-to-top', '@vuepress/medium-zoom'],
   serviceWorker: true
