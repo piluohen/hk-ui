@@ -13,7 +13,6 @@
 
 <script>
 import plugins from './plugins'
-// import toolbar from './toolbar'
 import load from './dynamicLoadScript'
 const tinymceCDN = 'https://cdn.jsdelivr.net/npm/tinymce-all-in-one@4.9.3/tinymce.min.js'
 export default {
@@ -27,7 +26,7 @@ export default {
     },
     upload: {
       type: Function,
-      default: () => { }
+      default: null
     },
     value: {
       type: String,
@@ -45,7 +44,7 @@ export default {
       type: String
     },
     maxSize: {
-      default: 2097152,
+      default: 5242880,
       type: Number
     },
     menubar: {
@@ -158,7 +157,12 @@ export default {
             failure('图片体积过大')
           }
           if (this.accept.indexOf(blobInfo.blob().type) >= 0) {
-            uploadPic()
+            if (!_this.upload) {
+              const img = 'data:image/jpeg;base64,' + blobInfo.base64()
+              success(img)
+            } else {
+              uploadPic()
+            }
           } else {
             failure('图片格式错误')
           }

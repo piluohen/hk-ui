@@ -17,7 +17,7 @@ module.exports = {
       }
     ],
     sidebar: {
-      '/component/': ['countup', 'table', 'hk-editor']
+      '/component/': ['countup', 'table', 'hk-editor', 'hk-search']
     },
     lastUpdated: '最后更新',
     repo: 'http://gitlab.hekr.me/front-end/hk-ui',
