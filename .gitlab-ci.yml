@@ -1,8 +1,4 @@
-cache:
-  paths:
-    - node_modules/
-
-部署到预发:
+data部署到预发:
   script:
     - npm install --registry=http://npm.hekr.me
     - npm run build:test
