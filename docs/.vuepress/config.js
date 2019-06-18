@@ -13,11 +13,11 @@ module.exports = {
       { text: '首页', link: '/' },
       {
         text: '组件',
-        link: '/component/countup'
+        link: '/component/hk-countup'
       }
     ],
     sidebar: {
-      '/component/': ['countup', 'table', 'hk-editor', 'hk-search']
+      '/component/': ['hk-countup', 'table', 'hk-editor', 'hk-form', 'hk-search']
     },
     lastUpdated: '最后更新',
     repo: 'http://gitlab.hekr.me/front-end/hk-ui',
