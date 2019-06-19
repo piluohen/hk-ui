@@ -23,8 +23,7 @@ export default {
 }
 </script>
 <style lang="scss">
-.doc-countup
-  .el-button {
-    margin-left: 20px;
-  }
+.doc-countup .el-button {
+  margin-left: 20px;
+}
 </style>

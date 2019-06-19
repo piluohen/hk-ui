@@ -21,7 +21,9 @@ module.exports = {
     sidebar: {
       '/component/': [
         'countup',
-        'table'
+        'table',
+        'breadcrumb',
+        'pagination'
       ]
     },
     lastUpdated: '最后更新',
