@@ -16,7 +16,10 @@ npm run build
 npm run lib
 ```
 
+## 项目地址
 
+- 测试地址： https://hy.hekr.me/hk-ui-test/web/index.html
+- 正式地址： https://hy.hekr.me/hk-ui/web/index.html
 
 ## 项目目录
 

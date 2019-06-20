@@ -6,6 +6,11 @@
   <hk-ui-search.1/>
 </template>
 
+::: tip 说明
+
+支持回车搜索,默认支持可清除配置，不想要清除配置[[clearable]]为[[false]],回调[[submit]]数据是所输入内容
+:::
+
 ```html
 <template lang="pug">
 .hk-ui-search
@@ -45,39 +50,105 @@
 </script>
 ```
 
+## 下拉框搜索
+
 <template>
   <hk-ui-search/>
 </template>
 
+::: tip 说明
+
+当我们在使用选择器时，会有两种写法，各有优劣，封装的不提供[[change]]回调，自己写的话自定义较高
+:::
+
 ```html
 <template lang="pug">
 .edit
-  el-button(@click="handleClick()") 设置默认值
-  hk-editor(v-model="value")
+  hk-search(:searchList="searchList" @submit="submit")
+  p 输入内容：{{form}}
+  p 选中内容：{{selsect}}
 </template>
 <script>
   export default {
-    name: 'hk-ui-editor',
+    name: 'hk-ui-search',
     data() {
       return {
-        value: '这是个默认值'
+        selsect: '',
+        form: {},
+        list: [{ text: '选项1', value: 1 }, { text: '选项2', value: 2 }]
+      }
+    },
+    computed: {
+      searchList() {
+        return [
+          {
+            title: '选择设备:',
+            type: 'hk-form',
+            children: [
+              {
+                type: 'input',
+                key: 'keyword',
+                props: {
+                  placeholder: '搜索设备名称/设备ID'
+                }
+              },
+              {
+                type: 'select',
+                key: 'select1',
+                options: this.list.map(item => ({
+                  text: item.text,
+                  value: item.value
+                })),
+                props: {
+                  placeholder: '请选择设备类型'
+                }
+              },
+              {
+                key: 'select2',
+                render: (h, item, form) => {
+                  return (
+                    <el-select
+                      v-model={form.select2}
+                      onChange={data => this.change(data)}
+                      size="small"
+                      placeholder="请选择设备型号"
+                      clearable
+                      style="margin-left:20px"
+                    >
+                      {this.list.map(goos => {
+                        return <el-option label={goos.text} value={goos.value} />
+                      })}
+                    </el-select>
+                  )
+                }
+              }
+            ]
+          }
+        ]
       }
     },
     methods: {
-      handleClick(html = '<h1>hk-ui是最好用的UI之一</h1>') {
-        this.value = html
+      submit(data) {
+        this.form = data
+      },
+      change(data) {
+        this.selsect = data
       }
     }
   }
 </script>
 ```
 
+## 时间和日期搜索
+
 ::: tip 说明
 
-当我们在使用编辑器时，需要自己配置上传[[upload]]的[[function]]，不传的话会生成 base64 图片文件
+支持[[daterange]]和[[datetimerange]]两个属性，不允许选择今天之后的配置，[[disabledDate]]为[[false]]可以选择所有日期
 :::
 
-- [[upload]]示例
+<template>
+  <hk-ui-search.2/>
+</template>
 
 ```js
 import axios from '@/axios'

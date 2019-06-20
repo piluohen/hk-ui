@@ -25,6 +25,10 @@ export default {
     labelMinWidth: {
       type: String,
       default: '60px'
+    },
+    showSubmit: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
@@ -65,7 +69,7 @@ export default {
                 {row.title}
               </div>
               <div class="hk-search-content">{content}</div>
-              <hk-submit onClick={this.getParams}>查询</hk-submit>
+              {this.showSubmit ? <hk-submit onClick={this.getParams}>查询</hk-submit> : null}
             </div>
           )
         })}
@@ -84,13 +88,18 @@ export default {
       let options = {
         inline: true
       }
+      let clearable = true
+      if (row.clearable === 'false' || row.clearable === false) {
+        clearable = false
+      }
       return (
         <hk-form
           ref="form"
+          enterSubmit={true}
           formList={row.children}
           options={options}
           contentWidth={'auto'}
-          clearable={row.clearable || true}
+          clearable={clearable}
           onSubmit={this.getParams}
         />
       )
@@ -119,6 +128,8 @@ export default {
       let params
       if (form.date) {
         let [startDate, endDate] = form.date
+        startDate = new Date(startDate)
+        endDate = new Date(endDate)
         params = {
           startDate,
           endDate,
