@@ -3,6 +3,7 @@ const baseMap = {
   test: '/hk-ui-test/web/',
   prod: '/hk-ui/web/'
 }
+let component = ['hk-countup', 'table', 'hk-editor', 'hk-form', 'hk-search']
 module.exports = {
   base: baseMap[process.env.ENV],
   title: 'Hk-ui',
@@ -17,7 +18,7 @@ module.exports = {
       }
     ],
     sidebar: {
-      '/component/': ['hk-countup', 'table', 'hk-editor', 'hk-form', 'hk-search']
+      '/component/': component
     },
     lastUpdated: '最后更新',
     repo: 'http://gitlab.hekr.me/front-end/hk-ui',

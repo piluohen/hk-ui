@@ -25,6 +25,10 @@ export default {
     labelMinWidth: {
       type: String,
       default: '60px'
+    },
+    showSubmit: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
@@ -56,19 +60,21 @@ export default {
           }
           return (
             <div class="hk-search-row">
-              <div
-                class="hk-search-title"
-                style={{
-                  minWidth: this.labelMinWidth
-                }}
-              >
-                {row.title}
-              </div>
+              {row.title ? (
+                <div
+                  class="hk-search-title"
+                  style={{
+                    minWidth: this.labelMinWidth
+                  }}
+                >
+                  {row.title}
+                </div>
+              ) : null}
               <div class="hk-search-content">{content}</div>
-              <hk-submit onClick={this.getParams}>查询</hk-submit>
             </div>
           )
         })}
+        {this.showSubmit ? <hk-submit onClick={this.getParams}>查询</hk-submit> : null}
       </div>
     )
   },
@@ -79,18 +85,24 @@ export default {
       if (target) {
         this.form.date = Array.isArray(target.defaultValue) ? target.defaultValue : getDefaultValue(target.defaultValue)
       }
+      this.getParams()
     },
     renderForm (row) {
       let options = {
         inline: true
       }
+      let clearable = true
+      if (row.clearable === 'false' || row.clearable === false) {
+        clearable = false
+      }
       return (
         <hk-form
           ref="form"
+          enterSubmit={true}
           formList={row.children}
           options={options}
           contentWidth={'auto'}
-          clearable={row.clearable || true}
+          clearable={clearable}
           onSubmit={this.getParams}
         />
       )
@@ -105,7 +117,18 @@ export default {
       )
     },
     renderDaterage (row) {
-      return <el-daterange type={row.type} v-model={this.form.date} />
+      return (
+        <el-date-picker
+          range-separator="至"
+          start-placeholder="开始日期"
+          end-placeholder="结束日期"
+          size="small"
+          value-format="timestamp"
+          type={row.type}
+          onChange={this.getParams}
+          v-model={this.form.date}
+        />
+      )
     },
     getForm () {
       let params = {
@@ -118,13 +141,17 @@ export default {
       let form = this.form
       let params
       if (form.date) {
-        let [startDate, endDate] = form.date
-        params = {
-          startDate,
-          endDate,
-          ...this.$refs.form.getForm()
+        let [startTime, endTime] = form.date
+        let allParams
+        if (this.$refs.form) {
+          allParams = this.$refs.form.getForm()
         }
-      } else {
+        params = {
+          startTime,
+          endTime: endTime + 86400000,
+          ...allParams
+        }
+      } else if (this.$refs.form) {
         params = {
           ...this.$refs.form.getForm()
         }
@@ -133,7 +160,6 @@ export default {
         if (params[key] === '' || params[key] === null || params[key] === undefined) delete params[key]
       })
       this.$emit('submit', params)
-      return params
     }
   }
 }

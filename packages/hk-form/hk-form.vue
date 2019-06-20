@@ -5,7 +5,7 @@ iViewForm.iView-form(
   v-bind="$attrs"
   :notCtrl="notCtrl"
   :formList="formList"
-  :enterSubmit="true"
+  :enterSubmit="enterSubmit"
   :options="currOption"
   :disabled="disabled"
   @submit="handleSubmit"
@@ -32,6 +32,10 @@ export default {
     iViewForm
   },
   props: {
+    enterSubmit: {
+      type: Boolean,
+      default: false
+    },
     options: {
       type: Object,
       default: () => {

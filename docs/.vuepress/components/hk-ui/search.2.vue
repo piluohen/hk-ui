@@ -1,27 +1,18 @@
 <template lang="pug">
 .hk-ui
+  h1 daterange示例
   hk-search(:searchList="searchList" @submit="submit")
   p.code 输入内容：{{form}}
 </template>
 <script>
 export default {
-  name: 'hk-ui-search.1',
+  name: 'hk-ui-search.2',
   data () {
     return {
       form: {},
       searchList: [
         {
-          title: '选择设备:',
-          type: 'hk-form',
-          children: [
-            {
-              type: 'input',
-              key: 'keyword',
-              props: {
-                placeholder: '搜索设备名称/设备ID'
-              }
-            }
-          ]
+          type: 'daterange'
         }
       ]
     }
