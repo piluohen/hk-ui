@@ -1,5 +1,5 @@
 <template lang="pug">
-.edit
+.hk-ui
   el-button(@click="handleClick()") 设置默认值
   hk-editor(v-model="value")
 </template>

@@ -1,4 +1,15 @@
-# hk-ui
+<div align="center">
+<h1>hk-ui</h1>
+</div>
+
+<div align="center">
+  <a><img src="https://img.shields.io/circleci/project/github/vuejs/vue/dev.svg" alt="Build Status"></a>
+  <a><img src="https://img.shields.io/badge/language-vue-42b983.svg" alt="Language"></a>
+  <a ><img src="https://img.shields.io/badge/license-MIT-000000.svg" alt="Version"></a>
+  <br>
+    <a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu"></a>
+  <a href="https://hy.hekr.me/hk-ui/web/index.html"><img src="https://img.shields.io/badge/hk_ui@V1.0-blue.svg" alt="hk-ui"></a>
+</div>
 
 ## 构建命令
 
@@ -16,7 +27,10 @@ npm run build
 npm run lib
 ```
 
+## 项目地址
 
+- 测试地址： https://hy.hekr.me/hk-ui-test/web/index.html
+- 正式地址： https://hy.hekr.me/hk-ui/web/index.html
 
 ## 项目目录
 
@@ -43,3 +57,5 @@ template
 ## 源码地址
 
 GitLab：[http://gitlab.hekr.me/front-end/hk-ui](http://gitlab.hekr.me/front-end/hk-ui)
+
+GitHub：[https://github.com/xkloveme/hk-ui](https://github.com/xkloveme/hk-ui)
