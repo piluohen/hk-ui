@@ -323,12 +323,12 @@
     .el-link.el-link--warning.is-underline:hover:after {
       border-color: #fb7d37; }
   .el-link.el-link--info {
-    color: #8a92a5; }
+    color: #17243466; }
     .el-link.el-link--info:hover {
-      color: #a1a8b7; }
+      color: rgba(139, 146, 154, 0.52); }
     .el-link.el-link--info:after {
-      border-color: #8a92a5; }
+      border-color: #17243466; }
     .el-link.el-link--info.is-disabled {
-      color: #c5c9d2; }
+      color: rgba(209, 211, 214, 0.7); }
     .el-link.el-link--info.is-underline:hover:after {
-      border-color: #8a92a5; }
+      border-color: #17243466; }

@@ -37,7 +37,7 @@ $--color-warning: #fb7d37 !default;
 /// color|1|Functional Color|1
 $--color-danger: #f22323 !default;
 /// color|1|Functional Color|1
-$--color-info: #8a92a5 !default;
+$--color-info: #17243466 !default;
 
 $--color-success-light: mix($--color-white, $--color-success, 80%) !default;
 $--color-warning-light: mix($--color-white, $--color-warning, 80%) !default;
@@ -521,9 +521,9 @@ $--button-medium-font-size: $--font-size-base !default;
 /// borderRadius||Border|2
 $--button-medium-border-radius: $--border-radius-base !default;
 /// padding||Spacing|3
-$--button-medium-padding-vertical: 10px !default;
+$--button-medium-padding-vertical: 7px !default;
 /// padding||Spacing|3
-$--button-medium-padding-horizontal: 20px !default;
+$--button-medium-padding-horizontal: 36px !default;
 
 /// fontSize||Font|1
 $--button-small-font-size: 12px !default;
@@ -583,7 +583,7 @@ $--button-info-border-color: $--color-info !default;
 /// color||Color|0
 $--button-info-font-color: $--color-white !default;
 /// color||Color|0
-$--button-info-background-color: $--color-info !default;
+$--button-info-background-color: $--color-text-regular !default;
 
 $--button-hover-tint-percent: 20% !default;
 $--button-active-shade-percent: 10% !default;
