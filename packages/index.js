@@ -1,20 +1,30 @@
 import HkCountup from './hk-countup'
 import HkEditor from './hk-editor'
-import hkSearch from './hk-search'
-import hkSubmit from './hk-submit'
-import hkForm from './hk-form'
+import HkSearch from './hk-search'
+import HkSubmit from './hk-submit'
+import HkForm from './hk-form'
+import HkScrollList from './hk-scroll-list'
+
 export const install = Vue => {
   Vue.component(HkCountup.name, HkCountup)
   Vue.component(HkEditor.name, HkEditor)
-  Vue.component(hkForm.name, hkForm)
-  Vue.component(hkSearch.name, hkSearch)
-  Vue.component(hkSubmit.name, hkSubmit)
+  Vue.component(HkForm.name, HkForm)
+  Vue.component(HkSearch.name, HkSearch)
+  Vue.component(HkSubmit.name, HkSubmit)
+  Vue.component(HkScrollList.name, HkScrollList)
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
 }
 
-export { HkCountup, HkEditor, hkForm, hkSubmit, hkSearch }
+export {
+  HkCountup,
+  HkEditor,
+  HkForm,
+  HkSubmit,
+  HkSearch,
+  HkScrollList
+}
 
 export default install
