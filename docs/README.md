@@ -2,7 +2,7 @@
 home: true
 heroImage: /images/vue.png
 actionText: 快速上手 →
-actionLink: /component/countup/
+actionLink: /component/hk-countup/
 features:
 - title: 技术栈
   details: 基于Element-ui，Vue拓展的组件库

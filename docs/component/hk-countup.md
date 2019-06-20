@@ -1,12 +1,13 @@
-# countup组件
+# hk-countup组件
 
 ## 用法
 
 默认用法，endVal 为必传
 
 <template>
-  <demo-countup/>
+  <demo-countup></demo-countup>
 </template>
+
 
 ```html
 <template>
