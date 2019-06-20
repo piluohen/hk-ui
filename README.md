@@ -5,7 +5,7 @@
 <div align="center">
   <a><img src="https://img.shields.io/circleci/project/github/vuejs/vue/dev.svg" alt="Build Status"></a>
   <a><img src="https://img.shields.io/badge/language-vue-42b983.svg" alt="Language"></a>
-  <a ><img src="https://img.shields.io/badge/license-Apache-000000.svg" alt="Version"></a>
+  <a ><img src="https://img.shields.io/badge/license-MIT-000000.svg" alt="Version"></a>
   <br>
     <a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu"></a>
   <a href="https://hy.hekr.me/hk-ui/web/index.html"><img src="https://img.shields.io/badge/hk_ui@V1.0-blue.svg" alt="hk-ui"></a>

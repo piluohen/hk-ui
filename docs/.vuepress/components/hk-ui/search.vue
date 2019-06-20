@@ -1,8 +1,8 @@
 <template lang="pug">
-.edit
+.hk-ui
   hk-search(:searchList="searchList" @submit="submit")
-  p 输入内容：{{form}}
-  p 选中内容：{{selsect}}
+  p.code 输入内容：{{form}}
+  p.code 选中内容：{{selsect}}
 </template>
 <script>
 export default {
