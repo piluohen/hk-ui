@@ -275,7 +275,7 @@
   .el-message p {
     margin: 0; }
   .el-message--info .el-message__content {
-    color: #8a92a5; }
+    color: #17243466; }
   .el-message--success {
     background-color: #e7f8eb;
     border-color: #cff1d7; }
@@ -317,7 +317,7 @@
   .el-message .el-icon-error {
     color: #f22323; }
   .el-message .el-icon-info {
-    color: #8a92a5; }
+    color: #17243466; }
   .el-message .el-icon-warning {
     color: #fb7d37; }
 
