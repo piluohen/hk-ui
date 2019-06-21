@@ -12,6 +12,7 @@ let component = [
   'hk-pagination',
   'hk-breadcrumb',
   'hk-table-toolbar',
+  'hk-table',
 
 ]
 module.exports = {
