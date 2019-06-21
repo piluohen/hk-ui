@@ -5,13 +5,14 @@ const baseMap = {
 }
 let component = [
   'hk-countup',
-  'table',
   'hk-editor',
   'hk-form',
   'hk-search',
   'hk-scroll-list',
   'hk-pagination',
-  'hk-breadcrumb'
+  'hk-breadcrumb',
+  'hk-table-toolbar',
+
 ]
 module.exports = {
   base: baseMap[process.env.ENV],

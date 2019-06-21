@@ -6,6 +6,8 @@ import HkForm from './hk-form'
 import HkScrollList from './hk-scroll-list'
 import HkPagination from './hk-pagination'
 import HkBreadcrumb from './hk-breadcrumb'
+// import HkTable from './hk-table'
+import hkTableToolbar from './hk-table-toolbar'
 
 export const install = Vue => {
   Vue.component(HkCountup.name, HkCountup)
@@ -16,6 +18,8 @@ export const install = Vue => {
   Vue.component(HkScrollList.name, HkScrollList)
   Vue.component(HkPagination.name, HkPagination)
   Vue.component(HkBreadcrumb.name, HkBreadcrumb)
+  // Vue.component(HkTable.name, HkTable)
+  Vue.component(hkTableToolbar.name, hkTableToolbar)
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
@@ -30,7 +34,9 @@ export {
   HkSearch,
   HkScrollList,
   HkPagination,
-  HkBreadcrumb
+  HkBreadcrumb,
+  // HkTable,
+  hkTableToolbar
 }
 
 export default install

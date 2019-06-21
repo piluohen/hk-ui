@@ -11,5 +11,8 @@ export default {
 <style lang="scss">
 .doc-breadcrumb .el-button {
   margin-left: 20px;
+  display: flex;
+  justify-content: space-between;
+  float: none;
 }
 </style>
