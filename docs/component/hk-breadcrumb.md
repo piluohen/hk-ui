@@ -1,4 +1,4 @@
-# breadcrumb 面包屑
+# hk-breadcrumb 面包屑组件
 
 ## 用法
 
