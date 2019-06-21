@@ -1,5 +1,13 @@
 <template lang="pug">
 .hk-ui
+  el-row(type="flex" class="button-row")
+    hk-button( icon="el-icon-search") 默认按钮
+    hk-button( type="primary" icon="el-icon-edit") 主要按钮
+    hk-button( type="success" icon="el-icon-check") 成功按钮
+    hk-button( type="info" icon="el-icon-message") 信息按钮
+    hk-button( type="warning" icon="el-icon-star-off") 警告按钮
+    hk-button( type="danger" icon="el-icon-delete") 危险按钮
+
   el-row(type="flex"  class="button-row")
     hk-button 默认按钮
     hk-button( type="primary") 主要按钮
@@ -43,22 +51,6 @@
 
 <script>
 export default {
-  name: 'hk-ui-button',
-  data () {
-    return {
-      form: {},
-      searchList: [
-        {
-          type: 'daterange'
-        }
-      ]
-    }
-  },
-  methods: {
-    submit (data) {
-      this.form = data
-      console.log(data, 77)
-    }
-  }
+  name: 'hk-ui-button'
 }
 </script>

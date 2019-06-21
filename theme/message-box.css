@@ -1170,11 +1170,11 @@
     .el-button--small.is-circle {
       padding: 9px; }
   .el-button--mini {
-    padding: 7px 15px;
+    padding: 7px 7px;
     font-size: 12px;
     border-radius: 3px; }
     .el-button--mini.is-round {
-      padding: 7px 15px; }
+      padding: 7px 7px; }
     .el-button--mini.is-circle {
       padding: 7px; }
   .el-button--text {
