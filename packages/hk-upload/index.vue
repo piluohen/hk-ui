@@ -66,11 +66,11 @@ export default {
       type: Object,
       default: () => {}
     },
-    'show-file-list': {
+    showFileList: {
       type: Boolean,
       default: true
     },
-    'list-type': {
+    listType: {
       type: String,
       default: 'text'
     },
@@ -129,7 +129,7 @@ export default {
           showFileList: true
         },
         'button': {
-          listType: '',
+          listType: 'text',
           showFileList: false
         }
       }
@@ -139,8 +139,8 @@ export default {
     },
     typeConfig () {
       return this.type ? this.typeConfigMap[this.type] : {
-        listType: this['list-type'],
-        showFileList: this['show-file-list']
+        listType: this.listType,
+        showFileList: this.showFileList
       }
     },
     options () {

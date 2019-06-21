@@ -4,11 +4,6 @@
 
 新增三种固定模式的上传方式，picture/file/button
 
-<template>
-  <demo-upload-other></demo-upload-other>
-</template>
-
-
 ### 图片上传
 
 适用于上传多个图片，图片可预览，可删除
@@ -126,7 +121,7 @@ export default {
 
 ```
 
-## button 上传
+### button 上传
 
 按钮上传通常为仅上传一次的的需求，如上传用户头像等
 
@@ -186,7 +181,51 @@ export default {
 
 ## slot
 
-支持slot
+支持slot，可以自定义上传触发按钮
+
+<template>
+  <demo-upload-slot></demo-upload-slot>
+</template>
+
+```html
+
+<template lang="pug">
+.demo-upload-slot
+  img.user-photos(:src="file")
+  hk-upload(
+    v-model="file"
+    :action="action"
+    :configs="configs"
+    :show-file-list="false"
+    @complate="handleComplate"
+  )
+    el-button(:loading="loading" :disabled="loading" type="warning") 这是一个很长的自定义上传触发按钮
+</template>
+
+<script>
+export default {
+  name: 'demo-upload-slot',
+  data () {
+    return {
+      action: `https://jsonplaceholder.typicode.com/posts/`,
+      configs: {
+        limitNum: 10,
+        limitSize: 2,
+        limitType: 'image/png,image/jpeg,image/gif'
+      },
+      file: 'http://oss.htcxcloud.com/3219dc07-a031-4dab-a7ad-b8c5d0c6d1da/曹操.jpg',
+      loading: false
+    }
+  },
+  methods: {
+    handleComplate (val) {
+      this.loading = !val
+    }
+  }
+}
+</script>
+
+```
 
 ## 事件
 
