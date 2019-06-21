@@ -4,8 +4,6 @@ import '../../theme/index.css'
 import Packages from '../../packages'
 import './public/style/var.css'
 
-console.log(Packages)
-
 export default ({ Vue }) => {
   Vue.use(Element)
   Vue.use(Packages)
