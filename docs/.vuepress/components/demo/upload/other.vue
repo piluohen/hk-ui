@@ -1,18 +1,21 @@
 <template lang="pug">
-.demo-upload-button
+.demo-upload-other
   img.user-photos(:src="file")
   hk-upload(
     v-model="file"
-    type="button"
     :action="action"
     :configs="configs"
+    :show-file-list="false"
+    :list-type="text"
     @complate="handleComplate"
   )
+    .el-upload--picture-card
+      i(class="el-icon-plus")
 </template>
 
 <script>
 export default {
-  name: 'demo-upload-button',
+  name: 'demo-upload-other',
   data () {
     return {
       action: `https://jsonplaceholder.typicode.com/posts/`,
@@ -34,7 +37,7 @@ export default {
 </script>
 
 <style lang="scss">
-.demo-upload-button {
+.demo-upload-other {
   margin: 20px 0;
   .user-photos {
     width: 100px;

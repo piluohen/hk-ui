@@ -12,7 +12,7 @@
         i.el-icon-view(@click="isShowImg(index)")
         i.el-icon-delete(@click="handleDelete(index)")
     el-upload(
-      v-if="type !== 'picture' || this.value.length < this.options.limitNum"
+      v-if="type !== 'picture' || this.fileList.length < this.options.limitNum"
       ref="upload"
       :action="action"
       :headers="headers"
@@ -21,7 +21,7 @@
       :accept="options.limitType"
       :show-file-list="typeConfig.showFileList"
       :list-type="typeConfig.listType"
-      :file-list="fileList"
+      :file-list= "fileList"
       :on-exceed="handleExceed"
       :before-upload="handleBeforeUpload"
       :on-preview="handlePictureCardPreview"
@@ -29,6 +29,7 @@
       :on-success="handleSuccess"
       :on-remove="handleRemove"
       :on-error="handleError"
+      v-bind="$attrs"
     )
       slot
         template(v-if="type === 'picture'")
@@ -45,22 +46,17 @@
             :loading="isUploading"
             :disabled="isUploading"
           ) {{ options.btnName }}
-    hk-preview(v-model="showPreview" :list="fileList" :index="imgIndex")
+    //- hk-preview(v-model="showPreview" :list="fileList" :index="imgIndex")
 </template>
 
 <script>
 export default {
   name: 'hk-upload',
   props: {
-    value: {
-      type: Array,
-      default: () => {
-        return []
-      }
-    },
+    value: {},
     type: {
       type: String,
-      default: 'picture'
+      default: ''
     },
     action: {
       type: String,
@@ -69,6 +65,14 @@ export default {
     headers: {
       type: Object,
       default: () => {}
+    },
+    'show-file-list': {
+      type: Boolean,
+      default: true
+    },
+    'list-type': {
+      type: String,
+      default: 'text'
     },
     configs: {
       required: false,
@@ -95,8 +99,27 @@ export default {
       percentage: 0,
       showPreview: false,
       progressImgUrl: '',
-      imgIndex: 0,
-      typeConfigMap: {
+      imgIndex: 0
+    }
+  },
+  computed: {
+    isSimple () {
+      return typeof this.value === 'string'
+    },
+    fileList: {
+      get () {
+        if (this.isSimple) {
+          return []
+        } else {
+          return this.value
+        }
+      },
+      set (val) {
+        this.$emit('input', val)
+      }
+    },
+    typeConfigMap () {
+      return {
         'picture': {
           listType: 'picture-card',
           showFileList: false
@@ -106,23 +129,19 @@ export default {
           showFileList: true
         },
         'button': {
-          listType: 'text',
+          listType: '',
           showFileList: false
         }
       }
-    }
-  },
-  computed: {
-    fileList: {
-      get () {
-        return this.value
-      },
-      set (val) {
-        this.$emit('input', val)
-      }
+    },
+    fileTypeName () {
+      return this.type === 'picture' ? '图片' : '文件'
     },
     typeConfig () {
-      return this.typeConfigMap[this.type]
+      return this.type ? this.typeConfigMap[this.type] : {
+        listType: this['list-type'],
+        showFileList: this['show-file-list']
+      }
     },
     options () {
       let self = this
@@ -134,14 +153,13 @@ export default {
         limitNum: util('limitNum', 10),
         limitSize: util('limitSize', 10),
         limitType: util('limitType', 'image/png,image/jpeg,image/gif'),
-        btnName: util('btnName', '点击上传'),
-        fileTypeName: util('fileTypeName', '文件')
+        btnName: util('btnName', '点击上传')
       }
     }
   },
   methods: {
     handleExceed (files, fileList) {
-      this.$message.warning(`最多上传${this.options.limitNum}个${this.options.fileTypeName}`)
+      this.$message.warning(`最多上传${this.options.limitNum}个${this.fileTypeName}`)
     },
     handlePictureCardPreview (file, index) {
       if (this.type !== 'picture') {
@@ -159,15 +177,16 @@ export default {
       this.$emit('complate', false)
       this.percentage = 0
       const isLimitSize = file.size / 1024 / 1024 < this.options.limitSize
+      if (!isLimitSize) {
+        this.$message.error(`上传${this.fileTypeName}大小不能超过${this.options.limitSize}MB！`)
+        this.resetUpload()
+      }
+
       let fileTypeArr = this.options.limitType.split(',') || []
       let fileType = file.type || ''
       let canUpload = fileTypeArr.includes(fileType)
       if (!canUpload) {
-        this.$message.error(`${this.options.fileTypeName}格式错误`)
-        this.resetUpload()
-      }
-      if (!isLimitSize) {
-        this.$message.error(`上传${this.options.fileTypeName}大小不能超过${this.options.limitSize}MB！`)
+        this.$message.error(`${this.fileTypeName}格式错误`)
         this.resetUpload()
       }
       return isLimitSize && canUpload
@@ -192,12 +211,16 @@ export default {
     handleSuccess (response, file) {
       this.resetUpload()
       this.percentage = 100
-      this.fileList.push({
-        name: response.filename,
-        url: response.url,
-        uploadTime: Number(new Date())
-      })
-      this.$emit('input', this.fileList)
+      if (this.isSimple) {
+        this.$emit('input', response.url)
+      } else {
+        this.fileList.push({
+          name: response.filename,
+          url: response.url,
+          uploadTime: Number(new Date())
+        })
+        this.$emit('input', this.fileList)
+      }
     },
     handleError () {
       this.$message.error('上传失败，请稍后重试')

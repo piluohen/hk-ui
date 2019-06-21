@@ -7,7 +7,7 @@
     :configs="configs"
     @complate="handleComplate"
   )
-  //- el-button(type="primary" size="small" :loading="loading" :disabled="loading" @click="handleSubmit") 保存表单
+  el-button(type="primary" size="small" :loading="loading" :disabled="loading" @click="handleSubmit") 保存表单
 </template>
 
 <script>
@@ -19,8 +19,7 @@ export default {
       configs: {
         limitNum: 10,
         limitSize: 2,
-        limitType: 'image/png,image/jpeg,image/gif',
-        fileTypeName: '图片'
+        limitType: 'image/png,image/jpeg,image/gif'
       },
       fileList: [
         {url: 'http://oss.htcxcloud.com/3219dc07-a031-4dab-a7ad-b8c5d0c6d1da/曹操.jpg'},
@@ -50,5 +49,8 @@ export default {
 <style lang="scss">
 .demo-upload-picture {
   margin: 20px 0;
+  .submit-btn {
+    margin-top: 20px;
+  }
 }
 </style>
