@@ -1,6 +1,6 @@
 <template lang="pug">
 .demo-progress
-  hk-progress(:percentage="percentage")
+  hk-progress(:percentage="percentage" type="circle")
   el-button(size="small" @click="handleChange") 改变随机值
 </template>
 
