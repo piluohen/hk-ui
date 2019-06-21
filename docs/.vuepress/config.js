@@ -9,7 +9,8 @@ let component = [
   'hk-editor',
   'hk-form',
   'hk-search',
-  'hk-scroll-list'
+  'hk-scroll-list',
+  'hk-upload'
 ]
 module.exports = {
   base: baseMap[process.env.ENV],

@@ -4,14 +4,24 @@ import HkSearch from './hk-search'
 import HkSubmit from './hk-submit'
 import HkForm from './hk-form'
 import HkScrollList from './hk-scroll-list'
+import HkUpload from './hk-upload'
 
-export const install = Vue => {
-  Vue.component(HkCountup.name, HkCountup)
-  Vue.component(HkEditor.name, HkEditor)
-  Vue.component(HkForm.name, HkForm)
-  Vue.component(HkSearch.name, HkSearch)
-  Vue.component(HkSubmit.name, HkSubmit)
-  Vue.component(HkScrollList.name, HkScrollList)
+const components = {
+  HkCountup,
+  HkEditor,
+  HkForm,
+  HkSubmit,
+  HkSearch,
+  HkScrollList,
+  HkUpload
+}
+
+let componentList = Object.keys(components)
+
+const install = Vue => {
+  componentList.forEach(item => {
+    Vue.component(components[item].name, components[item])
+  })
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
@@ -24,7 +34,8 @@ export {
   HkForm,
   HkSubmit,
   HkSearch,
-  HkScrollList
+  HkScrollList,
+  HkUpload
 }
 
-export default install
+export default { install }
