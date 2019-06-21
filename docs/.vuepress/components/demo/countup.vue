@@ -1,12 +1,12 @@
 <template lang="pug">
-.doc-countup
+.demo-countup
   hk-countup(:endVal="endVal")
   el-button(size="small" @click="handleChange") 改变随机值
 </template>
 
 <script>
 export default {
-  name: 'doc-countup',
+  name: 'demo-countup',
   data () {
     return {
       endVal: 0
@@ -23,7 +23,7 @@ export default {
 }
 </script>
 <style lang="scss">
-.doc-countup .el-button {
+.demo-countup .el-button {
   margin-left: 20px;
 }
 </style>

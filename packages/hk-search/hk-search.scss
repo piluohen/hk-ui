@@ -1,0 +1,54 @@
+.hk-ui-search-all {
+  .hk-search-all {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    .hk-search {
+      display: flex;
+      flex-wrap: wrap;
+      .hk-search-row {
+        font-size: 14px;
+        color: #172434;
+        display: flex;
+        align-items: center;
+        margin: 5px;
+        & + .hk-search-row {
+          margin-left: 20px;
+        }
+      }
+      .el-form {
+        display: flex;
+        .el-form-item {
+          margin: 0 0 0 20px;
+          // .el-form-item {}
+        }
+      }
+      .el-form-item__label {
+        width: auto !important;
+        padding: 0;
+      }
+      .el-form-item__content {
+        margin-left: 0 !important;
+      }
+      .el-form-item {
+        margin-bottom: 0;
+      }
+    }
+    .hk-search-button {
+    }
+  }
+  @keyframes bounce {
+    30%,
+    to {
+      transform: translateY(8px);
+    }
+    90% {
+      transform: translateY(0px);
+    }
+  }
+  .more {
+    font-size: 30px;
+    text-align: center;
+    animation: bounce 2s ease-in infinite;
+  }
+}

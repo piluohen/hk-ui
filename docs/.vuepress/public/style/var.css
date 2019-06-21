@@ -1,0 +1,30 @@
+.page {
+  margin: 0 auto;
+  padding: 0 40px;
+  overflow: hidden;
+}
+.theme-default-content:not(.custom) {
+  max-width: 100% !important;
+}
+.page-edit,
+.page-nav {
+  max-width: 100% !important;
+}
+.hk-ui {
+  margin: 10px 0;
+}
+/* 光标 */
+@keyframes caret {
+  50% {
+    border-right-color: transparent;
+  }
+}
+.code {
+  font: bold 100% Consolas, Monaco, monospace;
+  min-width: 15ch;
+  background: #000;
+  color: rgb(26, 230, 26);
+  padding: 5px;
+  border-right: 7px solid;
+  animation: caret 1s steps(1) infinite;
+}
