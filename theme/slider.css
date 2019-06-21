@@ -644,7 +644,7 @@
       outline: none;
       border-color: #005bea; }
   .el-textarea .el-input__count {
-    color: #8a92a5;
+    color: #17243466;
     background: #ffffff;
     position: absolute;
     font-size: 12px;
@@ -705,7 +705,7 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    color: #8a92a5;
+    color: #17243466;
     font-size: 12px; }
     .el-input .el-input__count .el-input__count-inner {
       background: #ffffff;
@@ -838,7 +838,7 @@
     display: table-cell; }
   .el-input-group__append, .el-input-group__prepend {
     background-color: #f5f7fa;
-    color: #8a92a5;
+    color: #17243466;
     vertical-align: middle;
     display: table-cell;
     position: relative;
@@ -1578,7 +1578,7 @@
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
     font-size: 14px;
-    color: #8a92a5;
+    color: #17243466;
     margin-top: 15px; }
 
 .el-slider.is-vertical {

@@ -1,4 +1,4 @@
-# hk-scroll-list组件
+# hk-scroll-list 滚动组件
 
 ## 用法
 

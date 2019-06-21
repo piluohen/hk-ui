@@ -423,11 +423,11 @@
   .el-radio-button:first-child:last-child .el-radio-button__inner {
     border-radius: 4px; }
   .el-radio-button--medium .el-radio-button__inner {
-    padding: 10px 20px;
+    padding: 7px 36px;
     font-size: 14px;
     border-radius: 0; }
     .el-radio-button--medium .el-radio-button__inner.is-round {
-      padding: 10px 20px; }
+      padding: 7px 36px; }
   .el-radio-button--small .el-radio-button__inner {
     padding: 9px 15px;
     font-size: 12px;
@@ -435,11 +435,11 @@
     .el-radio-button--small .el-radio-button__inner.is-round {
       padding: 9px 15px; }
   .el-radio-button--mini .el-radio-button__inner {
-    padding: 7px 15px;
+    padding: 7px 7px;
     font-size: 12px;
     border-radius: 0; }
     .el-radio-button--mini .el-radio-button__inner.is-round {
-      padding: 7px 15px; }
+      padding: 7px 7px; }
   .el-radio-button:focus:not(.is-focus):not(:active):not(.is-disabled) {
     /*获得焦点时 样式提醒*/
     -webkit-box-shadow: 0 0 2px 2px #005bea;

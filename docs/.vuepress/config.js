@@ -4,6 +4,7 @@ const baseMap = {
   prod: '/hk-ui/web/'
 }
 let component = [
+  'hk-button',
   'hk-countup',
   'hk-editor',
   'hk-form',
@@ -13,6 +14,7 @@ let component = [
   'hk-breadcrumb',
   'hk-table-toolbar',
   'hk-table',
+  'hk-upload'
 
 ]
 module.exports = {
@@ -42,6 +44,6 @@ module.exports = {
     // 使用更多的 markdown-it 插件!
     md.use(require('markdown-it-checkbox')).use(require('markdown-it-kbd'))
   },
-  plugins: ['@vuepress/back-to-top', '@vuepress/medium-zoom'],
+  plugins: ['@vuepress/back-to-top', '@vuepress/medium-zoom', 'demo-block'],
   serviceWorker: true
 }
