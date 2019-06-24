@@ -3,7 +3,7 @@ const baseMap = {
   test: '/hk-ui-test/web/',
   prod: '/hk-ui/web/'
 }
-let component = ['hk-countup', 'hk-city-picker', 'table', 'hk-editor', 'hk-form', 'hk-search', 'hk-progress', 'hk-echarts']
+let component = ['hk-countup', 'hk-city-picker', 'table', 'hk-editor', 'hk-form', 'hk-search', 'hk-progress', 'hk-echarts', 'hk-dialog']
 module.exports = {
   base: baseMap[process.env.ENV],
   title: 'Hk-ui',
