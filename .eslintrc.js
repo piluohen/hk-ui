@@ -3,6 +3,9 @@ module.exports = {
   env: {
     node: true
   },
+  globals: {
+    AMap: true
+  },
   extends: ["plugin:vue/essential", "@vue/standard"],
   rules: {
     "space-before-function-paren": 0,
