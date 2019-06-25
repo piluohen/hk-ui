@@ -7,7 +7,7 @@ data部署到预发:
     - test
   only:
     - dev
-  when: manual
+  when: always
   environment:
     name: env-test
     url: https://hy.hekr.me/hk-ui-test/web/index.html
