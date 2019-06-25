@@ -87,7 +87,7 @@ export default {
           </div>
           {this.showSubmit ? (
             <div class="hk-search-button">
-              <hk-submit onClick={this.getParams}>查询</hk-submit>
+              <hk-button onClick={this.getParams}>查询</hk-button>
             </div>
           ) : null}
         </div>
