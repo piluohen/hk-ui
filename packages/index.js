@@ -1,7 +1,7 @@
 import HkCountup from './hk-countup'
+import HkForm from './hk-form'
 import HkEditor from './hk-editor'
 import HkSearch from './hk-search'
-import HkForm from './hk-form'
 import HkButton from './hk-button'
 import HkScrollList from './hk-scroll-list'
 import HkPagination from './hk-pagination'
@@ -10,9 +10,14 @@ import HkTable from './hk-table'
 import hkTableToolbar from './hk-table-toolbar'
 import HkUpload from './hk-upload'
 import HkMap from './hk-map'
+import HkCityPicker from './hk-city-picker'
+import HkProgress from './hk-progress'
+import HkEcharts from './hk-echarts'
+import HkDialog from './hk-dialog'
 
 export const install = Vue => {
   Vue.component(HkCountup.name, HkCountup)
+  Vue.component(HkForm.name, HkForm)
   Vue.component(HkEditor.name, HkEditor)
   Vue.component(HkForm.name, HkForm)
   Vue.component(HkSearch.name, HkSearch)
@@ -24,6 +29,10 @@ export const install = Vue => {
   Vue.component(hkTableToolbar.name, hkTableToolbar)
   Vue.component(HkUpload.name, HkUpload)
   Vue.component(HkMap.name, HkMap)
+  Vue.component(HkCityPicker.name, HkCityPicker)
+  Vue.component(HkProgress.name, HkProgress)
+  Vue.component(HkEcharts.name, HkEcharts)
+  Vue.component(HkDialog.name, HkDialog)
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
@@ -42,7 +51,11 @@ export {
   hkTableToolbar,
   HkUpload,
   HkButton,
-  HkMap
+  HkMap,
+  HkCityPicker,
+  HkProgress,
+  HkEcharts,
+  HkDialog
 }
 
 export default { install }
