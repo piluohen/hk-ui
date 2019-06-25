@@ -10,6 +10,7 @@ import HkBreadcrumb from './hk-breadcrumb'
 import HkTable from './hk-table'
 import hkTableToolbar from './hk-table-toolbar'
 import HkUpload from './hk-upload'
+import HkMap from './hk-map'
 
 export const install = Vue => {
   Vue.component(HkCountup.name, HkCountup)
@@ -24,6 +25,7 @@ export const install = Vue => {
   Vue.component(HkTable.name, HkTable)
   Vue.component(hkTableToolbar.name, hkTableToolbar)
   Vue.component(HkUpload.name, HkUpload)
+  Vue.component(HkMap.name, HkMap)
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
@@ -42,7 +44,8 @@ export {
   HkTable,
   hkTableToolbar,
   HkUpload,
-  HkButton
+  HkButton,
+  HkMap
 }
 
 export default { install }

@@ -14,8 +14,8 @@ let component = [
   'hk-breadcrumb',
   'hk-table-toolbar',
   'hk-table',
-  'hk-upload'
-
+  'hk-upload',
+  'hk-map'
 ]
 module.exports = {
   base: baseMap[process.env.ENV],
