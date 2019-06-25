@@ -1,7 +1,13 @@
 <template lang="pug">
-  .doc-form
+  .demo-form
     hk-form(
-      :formList="formList"
+      ref="form"
+      v-model="model"
+      :items="formList"
+      :inline="false"
+      label-width="100px"
+      content-width="40%"
+      label-position="right"
     )
 </template>
 
@@ -10,28 +16,42 @@ export default {
   name: 'demo-form',
   data () {
     return {
+      model: {
+        deviceName: '',
+        simCode: '',
+        address: {},
+        installationSite: '',
+        desc: ''
+      },
       formList: [
         {
-          title: '设备名称',
-          type: 'input',
+          label: '设备名称',
+          tag: 'el-input',
           key: 'deviceName',
-          rule: { ruquired: true, message: '请输入设备名称', trigger: 'blur' },
-          props: {
-            placeholder: '请输入设备名称',
-            maxlength: 16
+          required: true,
+          rules: [
+            { required: true, message: '请输入设备名称', trigger: 'change' }
+          ],
+          attrs: {
+            placeholder: "请输入内容",
+            maxlength: 10
           }
         },
         {
-          title: 'SIM串码',
-          type: 'input',
+          label: 'SIM串码',
+          tag: 'el-input',
           key: 'simCode'
         },
         {
-          title: '安装位置',
-          type: 'input',
+          label: '安装位置',
+          tag: 'el-input',
           key: 'installationSite',
           props: {
-            maxlength: 16
+            type: 'textarea'
+          },
+          attrs: {
+            maxlength: 10,
+            rows: 4
           }
         }
       ]
@@ -40,7 +60,7 @@ export default {
 }
 </script>
 <style lang="scss">
-.doc-form {
+.demo-form {
   margin-top: 20px;
 }
 </style>
