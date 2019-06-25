@@ -4,9 +4,11 @@
     :visible="value"
     :before-close="handleClose"
     :width="width"
-    :close-on-click-modal="false"
+    :close-on-click-modal="preview"
     :append-to-body="true"
-    :show-close="false"
+    :show-close="preview"
+    v-bind="$attrs"
+    v-on="$listeners"
   )
     .dialog-header(slot="title")
       span.el-dialog__title {{title}}
@@ -14,7 +16,7 @@
     slot
     span(slot="footer" class="dialog-footer")
       hk-button.hekr-btn(v-if="showCancel" type="normal" @click="handleClose") 取 消
-      hk-button.hekr-btn(v-if="showConfirm" @click="handleConfirm" :loading="loading") 确 定
+      hk-button.hekr-btn(v-if="!preview && showConfirm" @click="handleConfirm" :loading="loading") 确 定
 </template>
 
 <script>
@@ -44,6 +46,10 @@ export default {
     showConfirm: {
       type: Boolean,
       default: true
+    },
+    preview: {
+      type: Boolean,
+      default: false
     },
     width: {
       type: String,
