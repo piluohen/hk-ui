@@ -120,7 +120,8 @@ export default {
         if (result.info === 'OK') {
           // result为对应的地理位置详细信息
           this.$emit('select', {
-            ...result.regeocode,
+            // ...result.regeocode,
+            towncode: result.regeocode.addressComponent.towncode,
             formattedAddress: result.regeocode.formatted_address,
             longitude: lnglat.lng,
             latitude: lnglat.lat
