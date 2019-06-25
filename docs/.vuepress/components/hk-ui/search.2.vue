@@ -1,6 +1,6 @@
 <template lang="pug">
 .hk-ui
-  h1 daterange示例
+  h2 daterange示例
   hk-search(:searchList="searchList" @submit="submit")
   p.code 输入内容：{{form}}
 </template>

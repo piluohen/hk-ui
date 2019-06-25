@@ -29,10 +29,15 @@ export default {
     showSubmit: {
       type: Boolean,
       default: true
+    },
+    more: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
     return {
+      fold: true,
       form: {
         date: null
       }
@@ -48,37 +53,56 @@ export default {
   },
   render (h) {
     return (
-      <div class="hk-search">
-        {this.searchList.map(row => {
-          let content
-          if (row.type === 'hk-form') {
-            content = this.renderForm(row)
-          } else if (row.type === 'daterange' || row.type === 'datetimerange') {
-            content = this.renderDaterage(row)
-          } else {
-            content = this.renderList(row)
-          }
-          return (
-            <div class="hk-search-row">
-              {row.title ? (
-                <div
-                  class="hk-search-title"
-                  style={{
-                    minWidth: this.labelMinWidth
-                  }}
-                >
-                  {row.title}
+      <div class="hk-ui-search-all">
+        <div class="hk-search-all">
+          <div
+            class="hk-search"
+            style={{ height: this.fold ? '40px' : 'auto', overflowY: this.fold ? 'hidden' : 'auto' }}
+          >
+            {this.searchList.map(row => {
+              let content
+              if (row.type === 'hk-form') {
+                content = this.renderForm(row)
+              } else if (row.type === 'daterange' || row.type === 'datetimerange') {
+                content = this.renderDaterage(row)
+              } else {
+                content = this.renderList(row)
+              }
+              return (
+                <div class="hk-search-row">
+                  {row.title ? (
+                    <div
+                      class="hk-search-title"
+                      style={{
+                        minWidth: this.labelMinWidth
+                      }}
+                    >
+                      {row.title}
+                    </div>
+                  ) : null}
+                  <div class="hk-search-content">{content}</div>
                 </div>
-              ) : null}
-              <div class="hk-search-content">{content}</div>
+              )
+            })}
+          </div>
+          {this.showSubmit ? (
+            <div class="hk-search-button">
+              <hk-submit onClick={this.getParams}>查询</hk-submit>
             </div>
-          )
-        })}
-        {this.showSubmit ? <hk-submit onClick={this.getParams}>查询</hk-submit> : null}
+          ) : null}
+        </div>
+        {this.more ? (
+          <div class="more" onClick={() => this.expend()}>
+            <i class={this.fold ? 'el-icon-arrow-down' : 'el-icon-arrow-up'} />
+          </div>
+        ) : null}
       </div>
     )
   },
   methods: {
+    expend () {
+      this.fold = !this.fold
+    },
     getDateDafaultValue () {
       let arr = ['daterange', 'datetimerange']
       let target = this.searchList.find(row => arr.includes(row.type))

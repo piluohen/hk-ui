@@ -1,0 +1,21 @@
+// 变量地址文件：https://github.com/ElemeFE/element/blob/dev/packages/theme-chalk/src/common/var.scss
+
+/* 改变 icon 字体路径变量，必需 */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+$--color-primary: $primary !default;
+$--color-success: $success !default;
+$--color-warning: $warning !default;
+$--color-danger: $danger !default;
+$--color-info: $info !default;
+
+/// color|1|Functional Color|1
+$--color-success: #0dbb38 !default;
+/// color|1|Functional Color|1
+$--color-warning: #fb7d37 !default;
+/// color|1|Functional Color|1
+$--color-danger: #f22323 !default;
+/// color|1|Functional Color|1
+$--color-info: #17243466 !default;
+// 必须最后导出，否则不能被覆盖
+@import '~element-ui/packages/theme-chalk/src/index.scss';
