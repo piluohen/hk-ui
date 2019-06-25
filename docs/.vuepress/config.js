@@ -15,7 +15,11 @@ let component = [
   'hk-table-toolbar',
   'hk-table',
   'hk-upload',
-  'hk-map'
+  'hk-map',
+  'hk-city-picker',
+  'hk-progress',
+  'hk-echarts',
+  'hk-dialog'
 ]
 module.exports = {
   base: baseMap[process.env.ENV],
