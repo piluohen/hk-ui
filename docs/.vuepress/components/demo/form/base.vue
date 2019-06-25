@@ -44,6 +44,13 @@ export default {
           col: 24
         },
         {
+          label: '选择类型',
+          tag: 'el-select',
+          key: 'deviceType',
+          col: 24,
+          
+        },
+        {
           label: '安装位置',
           tag: 'el-input',
           key: 'installationSite',

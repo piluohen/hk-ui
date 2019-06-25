@@ -10,7 +10,9 @@ export default {
   data () {
     return {
       selsect: '',
-      form: {},
+      form: {
+        select2: ''
+      },
       list: [{ text: '选项1', value: 1 }, { text: '选项2', value: 2 }]
     }
   },
@@ -22,24 +24,25 @@ export default {
           type: 'hk-form',
           children: [
             {
-              type: 'input',
+              tag: 'el-input',
               key: 'keyword',
-              props: {
+              attrs: {
                 placeholder: '搜索设备名称/设备ID'
               }
             },
             {
-              type: 'select',
+              tag: 'el-select',
               key: 'select1',
               options: this.list.map(item => ({
                 text: item.text,
                 value: item.value
               })),
-              props: {
+              attrs: {
                 placeholder: '请选择设备类型'
               }
             },
             {
+              tag: 'el-select',
               key: 'select2',
               render: (h, item, form) => {
                 return (<el-select v-model={form.select2} onChange={(data) => this.change(data)} size="small" placeholder="请选择设备型号" clearable style="margin-left:20px">
