@@ -4,7 +4,7 @@ el-button.hk-button(:size="size" :type="type" v-bind="$attrs" @click="handleClic
 </template>
 
 <script>
-import { Debounce } from './debounce.js'
+import { Debounce } from './../util/debounce'
 export default {
   name: 'hk-button',
   props: {

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import load from './../hk-editor/dynamicLoadScript'
+import load from './../util/dynamicLoadScript'
 let mapCDN = 'https://webapi.amap.com/maps?v=1.4.14&key=4d42d9473b20a8d7646605d98779fdf4'
 const getGeocodeApi = location => {
   return fetch(
@@ -57,6 +57,7 @@ export default {
     }
   },
   mounted () {
+    console.log(this.$router)
     load(mapCDN, (err) => {
       if (err) {
         this.$message.error(err.message)
