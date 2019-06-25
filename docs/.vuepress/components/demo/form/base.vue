@@ -6,7 +6,6 @@
       :items="formList"
       :inline="false"
       label-width="100px"
-      content-width="40%"
       label-position="right"
     )
 </template>
@@ -29,6 +28,7 @@ export default {
           tag: 'el-input',
           key: 'deviceName',
           required: true,
+          col: 24,
           rules: [
             { required: true, message: '请输入设备名称', trigger: 'change' }
           ],
@@ -40,12 +40,14 @@ export default {
         {
           label: 'SIM串码',
           tag: 'el-input',
-          key: 'simCode'
+          key: 'simCode',
+          col: 24
         },
         {
           label: '安装位置',
           tag: 'el-input',
           key: 'installationSite',
+          col: 24,
           props: {
             type: 'textarea'
           },
