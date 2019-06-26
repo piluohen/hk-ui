@@ -45,7 +45,7 @@ export default {
               tag: 'el-select',
               key: 'select2',
               render: (h, item, form) => {
-                return (<el-select v-model={form.select2} onChange={(data) => this.change(data)} size="small" placeholder="请选择设备型号" clearable style="margin-left:20px">
+                return (<el-select v-model={this.form.select2} onChange={(data) => this.change(data)} size="small" placeholder="请选择设备型号" clearable style="margin-left:20px">
                   {this.list.map(goos => {
                     return <el-option label={goos.text} value={goos.value}>
                     </el-option>

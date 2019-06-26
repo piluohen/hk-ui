@@ -14,7 +14,7 @@ export default {
   name: 'hk-date-picker',
   props: {
     value: {
-      type: [String, Array]
+      type: [String, Date, Number, Array]
     },
     size: {
       type: String,
@@ -23,8 +23,17 @@ export default {
   },
   data () {
     return {
-      currValue: this.value
       // pickerOptions: defaultData.pickerOptions
+    }
+  },
+  computed: {
+    currValue: {
+      get () {
+        return this.value
+      },
+      set (val) {
+        this.$emit('input', val)
+      }
     }
   },
   methods: {
@@ -38,6 +47,7 @@ export default {
       //     val[1] = getTimeRange(value[1] + 24 * 3600 * 1000)
       //   }
       // }
+      this.$emit('input', value)
       this.$emit('change', value)
     }
   }

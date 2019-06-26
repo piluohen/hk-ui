@@ -5,6 +5,7 @@
     type="date"
     placeholder="选择日期"
   )
+  p.code {{ value1 }}
 </template>
 
 <script>
