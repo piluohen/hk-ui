@@ -21,7 +21,8 @@ let component = [
   'hk-progress',
   'hk-echarts',
   'hk-dialog',
-  'hk-date-picker'
+  'hk-date-picker',
+  'hk-player'
 ]
 module.exports = {
   base: baseMap[process.env.ENV],

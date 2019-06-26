@@ -12,8 +12,8 @@ export default {
   data () {
     return {
       data: '',
-      latitude: 30.272378,
-      longitude: 120.127569,
+      latitude: null,
+      longitude: null,
       disabled: false,
       showInput: true
     }

@@ -33,7 +33,7 @@
     hk-button( type="danger" round) 危险按钮
 
   el-row(type="flex" class="button-row")
-    hk-button( icon="el-icon-search"  tips="圆角按钮" circle)
+    hk-button( icon="el-icon-search" plain  tips="圆角按钮" circle)
     hk-button( type="primary"  tips="主要按钮" icon="el-icon-edit" circle)
     hk-button( type="success" icon="el-icon-check" circle)
     hk-button( type="info" icon="el-icon-message" circle)
