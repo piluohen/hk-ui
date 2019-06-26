@@ -15,6 +15,7 @@ import HkProgress from './hk-progress'
 import HkEcharts from './hk-echarts'
 import HkDialog from './hk-dialog'
 import HkPreview from './hk-preview'
+import HkDatePicker from './hk-date-picker'
 
 const components = [
   HkCountup,
@@ -33,7 +34,8 @@ const components = [
   HkProgress,
   HkEcharts,
   HkDialog,
-  HkPreview
+  HkPreview,
+  HkDatePicker
 ]
 
 const install = Vue => {
@@ -63,7 +65,8 @@ export {
   HkProgress,
   HkEcharts,
   HkDialog,
-  HkPreview
+  HkPreview,
+  HkDatePicker
 }
 
 export default { install }

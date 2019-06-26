@@ -41,3 +41,13 @@ a:active.input:active {
   border-right: 7px solid;
   animation: caret 1s steps(1) infinite;
 }
+
+.el-date-table {
+  display: table;
+  tr, th, td {
+    border: none;
+  }
+  tr:nth-child(2n) {
+    background-color: #ffffff;
+  }
+}
