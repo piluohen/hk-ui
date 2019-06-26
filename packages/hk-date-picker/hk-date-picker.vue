@@ -1,29 +1,36 @@
 <template lang="pug">
   el-date-picker(
     v-model="currValue"
+    :type="type"
     :size="size"
+    :default-time="defaultTimeArr"
     v-bind="$attrs"
+    :value-format="valueFormat"
     @change="handleChange"
   )
 </template>
 
 <script>
-// import { getTimeRange } from '@/assets/utils/date'
-// import { defaultData } from '@/config/defaultData'
 export default {
   name: 'hk-date-picker',
   props: {
     value: {
       type: [String, Date, Number, Array]
     },
+    type: {
+      type: String,
+      default: 'date'
+    },
     size: {
       type: String,
       default: 'small'
-    }
-  },
-  data () {
-    return {
-      // pickerOptions: defaultData.pickerOptions
+    },
+    'default-time': {
+      type: [String, Array]
+    },
+    valueFormat: {
+      type: String,
+      default: 'timestamp'
     }
   },
   computed: {
@@ -34,20 +41,17 @@ export default {
       set (val) {
         this.$emit('input', val)
       }
+    },
+    defaultTimeArr () {
+      if (this.type === 'daterange' || this.type === 'datetimerange') {
+        return ['00:00:00', '23:59:59']
+      } else {
+        return this.defaultTime
+      }
     }
   },
   methods: {
     handleChange (value) {
-      // let val = []
-      // if (value && value.length > 0) {
-      //   val = [...value]
-      //   if (getTimeRange(value[1]) === getTimeRange(Date.now())) {
-      //     val[1] = Date.now()
-      //   } else {
-      //     val[1] = getTimeRange(value[1] + 24 * 3600 * 1000)
-      //   }
-      // }
-      this.$emit('input', value)
       this.$emit('change', value)
     }
   }

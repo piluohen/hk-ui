@@ -42,7 +42,18 @@ a:active.input:active {
   animation: caret 1s steps(1) infinite;
 }
 
-.el-date-table {
+pre.language-bash,
+pre.language-html,
+pre.language-js,
+pre.language-pug,
+pre.language-scss,
+pre.language-css {
+  max-height: 400px;
+}
+
+.el-date-table,
+.el-year-table,
+.el-month-table {
   display: table;
   tr, th, td {
     border: none;
