@@ -5,11 +5,11 @@
       v-for="(item, index) in value"
       :key="index"
     )
-      img.img(:src="item.url")
+      el-image(:src="item.url" fit="cover")
       .delete(
         v-if="!isUploading"
       )
-        i.el-icon-view(@click="isShowImg(index)")
+        i.el-icon-view(@click="handlePictureCardPreview(index)")
         i.el-icon-delete(@click="handleDelete(index)")
     el-upload(
       v-if="type !== 'picture' || this.fileList.length < this.options.limitNum"
@@ -24,7 +24,6 @@
       :file-list= "fileList"
       :on-exceed="handleExceed"
       :before-upload="handleBeforeUpload"
-      :on-preview="handlePictureCardPreview"
       :on-progress="handleProgress"
       :on-success="handleSuccess"
       :on-remove="handleRemove"
@@ -46,7 +45,7 @@
             :loading="isUploading"
             :disabled="isUploading"
           ) {{ options.btnName }}
-    //- hk-preview(v-model="showPreview" :list="fileList" :index="imgIndex")
+    hk-preview(v-model="showPreview" :list="fileList" :index="imgIndex")
 </template>
 
 <script>
@@ -161,16 +160,12 @@ export default {
     handleExceed (files, fileList) {
       this.$message.warning(`最多上传${this.options.limitNum}个${this.fileTypeName}`)
     },
-    handlePictureCardPreview (file, index) {
+    handlePictureCardPreview (index) {
       if (this.type !== 'picture') {
         return false
       }
       this.showPreview = true
-      this.fileList.forEach((item, i) => {
-        if (item.url === file.url) {
-          this.imgIndex = i
-        }
-      })
+      this.imgIndex = index
     },
     handleBeforeUpload (file) {
       this.isUploading = true
@@ -251,9 +246,9 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    .img {
-      max-width: 100%;
-      max-height: 100%;
+    .el-image {
+      width: 100%;
+      height: 100%;
     }
     .delete {
       display: none;

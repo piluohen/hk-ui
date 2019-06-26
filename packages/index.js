@@ -14,25 +14,32 @@ import HkCityPicker from './hk-city-picker'
 import HkProgress from './hk-progress'
 import HkEcharts from './hk-echarts'
 import HkDialog from './hk-dialog'
+import HkPreview from './hk-preview'
 
-export const install = Vue => {
-  Vue.component(HkCountup.name, HkCountup)
-  Vue.component(HkForm.name, HkForm)
-  Vue.component(HkEditor.name, HkEditor)
-  Vue.component(HkForm.name, HkForm)
-  Vue.component(HkSearch.name, HkSearch)
-  Vue.component(HkButton.name, HkButton)
-  Vue.component(HkScrollList.name, HkScrollList)
-  Vue.component(HkPagination.name, HkPagination)
-  Vue.component(HkBreadcrumb.name, HkBreadcrumb)
-  Vue.component(HkTable.name, HkTable)
-  Vue.component(hkTableToolbar.name, hkTableToolbar)
-  Vue.component(HkUpload.name, HkUpload)
-  Vue.component(HkMap.name, HkMap)
-  Vue.component(HkCityPicker.name, HkCityPicker)
-  Vue.component(HkProgress.name, HkProgress)
-  Vue.component(HkEcharts.name, HkEcharts)
-  Vue.component(HkDialog.name, HkDialog)
+const components = [
+  HkCountup,
+  HkForm,
+  HkEditor,
+  HkSearch,
+  HkButton,
+  HkScrollList,
+  HkPagination,
+  HkBreadcrumb,
+  HkTable,
+  hkTableToolbar,
+  HkUpload,
+  HkMap,
+  HkCityPicker,
+  HkProgress,
+  HkEcharts,
+  HkDialog,
+  HkPreview
+]
+
+const install = Vue => {
+  components.forEach(item => {
+    Vue.component(item.name, item)
+  })
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
@@ -41,21 +48,22 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export {
   HkCountup,
-  HkEditor,
   HkForm,
+  HkEditor,
   HkSearch,
+  HkButton,
   HkScrollList,
   HkPagination,
   HkBreadcrumb,
   HkTable,
   hkTableToolbar,
   HkUpload,
-  HkButton,
   HkMap,
   HkCityPicker,
   HkProgress,
   HkEcharts,
-  HkDialog
+  HkDialog,
+  HkPreview
 }
 
 export default { install }
