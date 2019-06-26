@@ -15,6 +15,7 @@ let component = [
   'hk-table-toolbar',
   'hk-table',
   'hk-upload',
+  'hk-preview',
   'hk-map',
   'hk-city-picker',
   'hk-progress',

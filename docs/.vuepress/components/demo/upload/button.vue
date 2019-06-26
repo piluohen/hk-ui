@@ -1,6 +1,6 @@
 <template lang="pug">
 .demo-upload-button
-  img.user-photos(:src="file")
+  el-image.user-photos(:src="file" fit="cover")
   hk-upload(
     v-model="file"
     type="button"

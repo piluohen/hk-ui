@@ -22,76 +22,76 @@
         img(:src="item.url")
 </template>
 <script>
-  export default {
-    name: 'hk-preview',
-    data () {
-      return {
-        hideLeft: false,
-        hideRight: false
-      }
+export default {
+  name: 'hk-preview',
+  data () {
+    return {
+      hideLeft: false,
+      hideRight: false
+    }
+  },
+  props: {
+    value: {
+      type: Boolean,
+      default: false
     },
-    props: {
-      value: {
-        type: Boolean,
-        default: false
-      },
-      // 图片数据
-      list: {
-        type: Array,
-        default: () => []
-      },
-      // 图片索引
-      index: {
-        type: Number,
-        default: 0
-      },
-      // 是否无限循环，默认为true
-      isInfinite: {
-        type: Boolean,
-        default: true
-      }
+    // 图片数据
+    list: {
+      type: Array,
+      default: () => []
     },
-    computed: {
-      showDialog: {
-        get () {
-          return this.value
-        },
-        set (val) {
-          this.$emit('input', val)
-        }
-      }
+    // 图片索引
+    index: {
+      type: Number,
+      default: 0
     },
-    watch: {
-      index (val) {
-        // 监听index的值，如果已初始化了carousel且carousel的activeIndex与index不相等才执行重新对carousel赋值活动索引
-        if (this.$refs['carousel'] && this.$refs['carousel'].activeIndex !== val) {
-          this.$refs.carousel.setActiveItem(val)
-          this.showArrowMethod(val)
-        }
+    // 是否无限循环，默认为true
+    isInfinite: {
+      type: Boolean,
+      default: true
+    }
+  },
+  computed: {
+    showDialog: {
+      get () {
+        return this.value
       },
-      list () {
-        this.showArrowMethod(0)
-      },
-      isInfinite () {
-        this.showArrowMethod(this.index)
+      set (val) {
+        this.$emit('input', val)
       }
-    },
-    methods: {
-      changeHandle (val) {
+    }
+  },
+  watch: {
+    index (val) {
+      // 监听index的值，如果已初始化了carousel且carousel的activeIndex与index不相等才执行重新对carousel赋值活动索引
+      if (this.$refs['carousel'] && this.$refs['carousel'].activeIndex !== val) {
+        this.$refs.carousel.setActiveItem(val)
         this.showArrowMethod(val)
-      },
-      // 显示左右箭头方法
-      showArrowMethod (index) {
-        if (!this.isInfinite) {
-          this.hideLeft = index === 0
-          this.hideRight = index === this.list.length - 1
-        } else {
-          this.hideLeft = false
-          this.hideRight = false
-        }
+      }
+    },
+    list () {
+      this.showArrowMethod(0)
+    },
+    isInfinite () {
+      this.showArrowMethod(this.index)
+    }
+  },
+  methods: {
+    changeHandle (val) {
+      this.showArrowMethod(val)
+    },
+    // 显示左右箭头方法
+    showArrowMethod (index) {
+      if (!this.isInfinite) {
+        this.hideLeft = index === 0
+        this.hideRight = index === this.list.length - 1
+      } else {
+        this.hideLeft = false
+        this.hideRight = false
       }
     }
   }
+}
 </script>
 <style lang="scss">
   .show-img-dialog {
@@ -112,6 +112,7 @@
       }
       .el-dialog__body {
         height: 100%;
+        padding: 0;
         .el-carousel {
           height: 100%;
           .el-carousel__item {
@@ -126,7 +127,7 @@
           }
           img {
             max-width: 80%;
-            max-height: 100%;
+            max-height: calc(100% - 40px);
           }
           &.hide-left {
             .el-carousel__arrow--left {
