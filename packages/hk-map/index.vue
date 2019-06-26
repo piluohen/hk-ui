@@ -57,7 +57,6 @@ export default {
     }
   },
   mounted () {
-    console.log(this.$router)
     load(mapCDN, (err) => {
       if (err) {
         this.$message.error(err.message)

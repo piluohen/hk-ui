@@ -15,6 +15,10 @@ export default {
     size: {
       type: String,
       default: 'medium'
+    },
+    tip: {
+      type: String,
+      default: null
     }
   },
   methods: {
