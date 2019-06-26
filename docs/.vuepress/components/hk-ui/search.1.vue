@@ -15,9 +15,9 @@ export default {
           type: 'hk-form',
           children: [
             {
-              type: 'input',
+              tag: 'el-input',
               key: 'keyword',
-              props: {
+              attrs: {
                 placeholder: '搜索设备名称/设备ID'
               }
             }

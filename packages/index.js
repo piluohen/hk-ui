@@ -1,7 +1,7 @@
 import HkCountup from './hk-countup'
+import HkForm from './hk-form'
 import HkEditor from './hk-editor'
 import HkSearch from './hk-search'
-import HkForm from './hk-form'
 import HkButton from './hk-button'
 import HkScrollList from './hk-scroll-list'
 import HkPagination from './hk-pagination'
@@ -10,20 +10,38 @@ import HkTable from './hk-table'
 import hkTableToolbar from './hk-table-toolbar'
 import HkUpload from './hk-upload'
 import HkMap from './hk-map'
+import HkCityPicker from './hk-city-picker'
+import HkProgress from './hk-progress'
+import HkEcharts from './hk-echarts'
+import HkDialog from './hk-dialog'
+import HkPreview from './hk-preview'
+import HkDatePicker from './hk-date-picker'
 
-export const install = Vue => {
-  Vue.component(HkCountup.name, HkCountup)
-  Vue.component(HkEditor.name, HkEditor)
-  Vue.component(HkForm.name, HkForm)
-  Vue.component(HkSearch.name, HkSearch)
-  Vue.component(HkButton.name, HkButton)
-  Vue.component(HkScrollList.name, HkScrollList)
-  Vue.component(HkPagination.name, HkPagination)
-  Vue.component(HkBreadcrumb.name, HkBreadcrumb)
-  Vue.component(HkTable.name, HkTable)
-  Vue.component(hkTableToolbar.name, hkTableToolbar)
-  Vue.component(HkUpload.name, HkUpload)
-  Vue.component(HkMap.name, HkMap)
+const components = [
+  HkCountup,
+  HkForm,
+  HkEditor,
+  HkSearch,
+  HkButton,
+  HkScrollList,
+  HkPagination,
+  HkBreadcrumb,
+  HkTable,
+  hkTableToolbar,
+  HkUpload,
+  HkMap,
+  HkCityPicker,
+  HkProgress,
+  HkEcharts,
+  HkDialog,
+  HkPreview,
+  HkDatePicker
+]
+
+const install = Vue => {
+  components.forEach(item => {
+    Vue.component(item.name, item)
+  })
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
@@ -32,17 +50,23 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export {
   HkCountup,
-  HkEditor,
   HkForm,
+  HkEditor,
   HkSearch,
+  HkButton,
   HkScrollList,
   HkPagination,
   HkBreadcrumb,
   HkTable,
   hkTableToolbar,
   HkUpload,
-  HkButton,
-  HkMap
+  HkMap,
+  HkCityPicker,
+  HkProgress,
+  HkEcharts,
+  HkDialog,
+  HkPreview,
+  HkDatePicker
 }
 
 export default { install }
