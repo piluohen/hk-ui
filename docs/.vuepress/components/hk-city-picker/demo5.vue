@@ -1,18 +1,18 @@
 <template lang="pug">
-el-row.hk-city-picker-demo4(:gutter="20")
+el-row.hk-city-picker-demo5(:gutter="20")
   el-col(:span="12")
-    p 多选
-    hk-city-picker(v-model="code" multiple)
+    p 可搜索
+    hk-city-picker(v-model="code" filterable)
     p.code code: {{ code }}
   el-col(:span="12")
-    p 完整code多选
-    hk-city-picker(v-model="code2" :lastCode="false" multiple)
+    p 多选可搜索
+    hk-city-picker(v-model="code2" multiple filterable)
     p.code code: {{ code2 }}
 </template>
 
 <script>
 export default {
-  name: 'hk-city-picker-demo4',
+  name: 'hk-city-picker-demo5',
   data () {
     return {
       code: '',
