@@ -4,6 +4,7 @@ module.exports = {
     node: true
   },
   globals: {
+    EZUIPlayer: true,
     AMap: true
   },
   extends: ["plugin:vue/essential", "@vue/standard"],
