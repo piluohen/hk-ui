@@ -87,7 +87,7 @@ export default {
           </div>
           {this.showSubmit ? (
             <div class="hk-search-button">
-              <hk-submit onClick={this.getParams}>查询</hk-submit>
+              <hk-button onClick={this.getParams}>查询</hk-button>
             </div>
           ) : null}
         </div>
@@ -112,22 +112,24 @@ export default {
       this.getParams()
     },
     renderForm (row) {
-      let options = {
-        inline: true
-      }
-      let clearable = true
-      if (row.clearable === 'false' || row.clearable === false) {
-        clearable = false
-      }
+      // let options = {
+      //   inline: true
+      // }
+      // let clearable = true
+      // if (row.clearable === 'false' || row.clearable === false) {
+      //   clearable = false
+      // }
       return (
         <hk-form
           ref="form"
-          enterSubmit={true}
-          formList={row.children}
-          options={options}
-          contentWidth={'auto'}
-          clearable={clearable}
-          onSubmit={this.getParams}
+          v-model={this.form}
+          inline={true}
+          items={row.children}
+          // enterSubmit={true}
+          // formList={row.children}
+          // options={options}
+          // contentWidth={'auto'}
+          // clearable={clearable}
         />
       )
     },

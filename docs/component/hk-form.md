@@ -2,4 +2,4 @@
 
 ## 用法
 
-<demo-form/>
+<demo-form-base/>

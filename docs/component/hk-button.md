@@ -173,11 +173,16 @@
 
 ## API
 
-| 参数    |       描述        |      类型      | 必须 | 默认值                         |
-| ------- | :---------------: | :------------: | :--: | ------------------------------ |
-| value   |      绑定值       |     String     |  是  | -                              |
-| upload  | 上传 CND 地址方法 |    Function    |  否  | -                              |
-| accept  |     接受类型      |     String     |  否  | image/jpeg,image/jpg,image/png |
-| maxSize |     图片大小      |     Number     |  否  | 5242880（5M）                  |
-| height  |       高度        | Number, String |  否  | 500                            |
-| width   |       宽度        | Number, String |  否  | auto                           |
+| 参数        | 说明           | 类型    | 可选值                                             | 默认值 |
+| ----------- | -------------- | ------- | -------------------------------------------------- | ------ |
+| size        | 尺寸           | string  | medium / small / mini                              | —      |
+| type        | 类型           | string  | primary / success / warning / danger / info / text | —      |
+| tips        | 提示消息       | string  | -                                                  | —      |
+| plain       | 是否朴素按钮   | boolean | —                                                  | false  |
+| round       | 是否圆角按钮   | boolean | —                                                  | false  |
+| circle      | 是否圆形按钮   | boolean | —                                                  | false  |
+| loading     | 是否加载中状态 | boolean | —                                                  | false  |
+| disabled    | 是否禁用状态   | boolean | —                                                  | false  |
+| icon        | 图标类名       | string  | —                                                  | —      |
+| autofocus   | 是否默认聚焦   | boolean | —                                                  | false  |
+| native-type | 原生 type 属性 | string  | button / submit / reset                            | button |

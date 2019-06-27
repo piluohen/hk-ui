@@ -6,7 +6,7 @@
   <demo-scroll-list></demo-scroll-list>
 </template>
 
-```html
+```scss
 
 <template lang="pug">
 .demo-scroll-list
@@ -60,7 +60,7 @@ export default {
 
 ```
 
-## 配置
+## Api
 
 | 参数 | 描述 | 类型 | 可选值 | 必须 | 默认值 |
 | -- |:----: | :--: | :--: | :--: | -- |
@@ -73,7 +73,7 @@ export default {
 
 ## Slot
 
-```bash
+```pug
 # 支持slot，可以自定义slot子项的内容，如
 # item为data的子项
 
@@ -83,7 +83,7 @@ template(slot-scope="{ item }")
     .desc {{ item.desc }}
 
 ```
-## 事件
+## Events
 
 | 事件 | 描述 | 参数 |
 | -- |:----: | :--: |
