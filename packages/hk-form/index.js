@@ -43,22 +43,45 @@ export default {
     validateHandle (...args) {
       this.$emit('validate', ...args)
     },
+    // createTag () {
+
+    // },
     // render 子项
-    renderItem (createElement) {
+    renderItem (h) {
       return this.items.map((item, index) => {
-        const input = val => {
-          this.model = { ...this.model, [item.key]: val }
+        let input = val => {
+          this.model[item.key] = val
         }
-        const value = this.model[item.key]
+        let value = this.model[item.key]
         // 渲染控件
-        const render = item.render
-          ? item.render(createElement, { model: this.model, item, value, input })
-          : createElement(item.tag, {
+        let render = item.render
+          ? item.render(h, { model: this.model, item, value, input })
+          : h(item.tag, {
             ref: item.ref,
             attrs: item.attrs,
-            props: { ...item.props, value },
-            on: { input }
+            props: { ...item.props, value: value },
+            on: {
+              ...item.on,
+              input
+            }
+          },
+          item.children && [...item.children.options].map((option, i) => {
+            let childrenTag = item.children.tag
+            let props = { ...option }
+            if (childrenTag === 'el-radio' || childrenTag === 'el-checkbox') {
+              props = {
+                ...props,
+                slot: option.label,
+                label: option.value
+              }
+            }
+            return h(item.children.tag, {
+              key: i,
+              attrs: option.attrs,
+              props: { ...item.children.props, ...props }
+            }, props.slot || props.label)
           })
+          )
         if (!this.inline) {
           return (
             <el-col span={item.col}>
