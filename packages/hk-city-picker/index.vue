@@ -6,17 +6,15 @@ el-cascader.hk-city-picker(
   :clearable="clearable"
   :filterable="filterable"
   v-bind="$attrs"
-  @change="change"
+  v-on="$listeners"
 )
   template(slot-scope="{ node, data }")
     slot(:node="node" :data="data")
   template(slot="empty")
     slot(name="empty")
-//- v-on="$listeners"
 </template>
 
 <script>
-import _ from 'lodash'
 export default {
   name: 'hk-city-picker',
   props: {
@@ -27,9 +25,9 @@ export default {
       },
       default: 'district'
     },
-    lastCode: {
+    emitPath: {
       type: Boolean,
-      default: true
+      default: false
     },
     props: {
       type: Object,
@@ -62,6 +60,7 @@ export default {
         label: 'name',
         children: 'area',
         checkStrictly: true,
+        emitPath: this.emitPath,
         expandTrigger: 'hover',
         multiple: this.multiple,
         ...this.props
@@ -69,30 +68,10 @@ export default {
     },
     model: {
       get () {
-        let value = this.value
-        if (value && this.lastCode) {
-          if (this.multiple) {
-            value = value.map(item => {
-              return this.lastCodeToAll(item)
-            })
-          } else {
-            value = this.lastCodeToAll(value)
-          }
-        }
-        return value
+        return this.value
       },
       set (val) {
-        let value = val
-        if (this.lastCode) {
-          if (this.multiple) {
-            value = value.map(item => {
-              return _.last(item)
-            })
-          } else {
-            value = _.last(value)
-          }
-        }
-        this.$emit('input', value)
+        this.$emit('input', val)
       }
     },
     localKey () {
@@ -142,30 +121,6 @@ export default {
      */
     setLocal (key, info) {
       return localStorage.setItem(key, JSON.stringify(info))
-    },
-    /**
-     * 将6位或9位code转成包含父级code的数组
-     */
-    lastCodeToAll (value) {
-      let arr = Array.from({ length: 4 }, (v, k) => {
-        if (k === 3) {
-          return value.substr(6, 3) || '000'
-        } else {
-          return value.substr(k * 2, 2)
-        }
-      })
-      _.remove(arr, item => item === '00' || item === '000')
-      return arr.map((v, k) => {
-        if (k > 2) {
-          return value
-        } else {
-          let item = value.substr(0, (k + 1) * 2)
-          return _.padEnd(item, 6, '0')
-        }
-      })
-    },
-    change (val) {
-      this.$emit('change', val)
     }
   }
 }

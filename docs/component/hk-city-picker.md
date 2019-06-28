@@ -36,7 +36,7 @@
 </template>
 
 ```js
-  hk-city-picker(v-model="code" :lastCode="false")
+  hk-city-picker(v-model="code" emitPath)
 ```
 
 ## 多选
@@ -47,7 +47,7 @@
 
 ```js
   hk-city-picker(v-model="code" multiple)
-  hk-city-picker(v-model="code2" :lastCode="false" multiple)
+  hk-city-picker(v-model="code2" emitPath multiple)
 ```
 
 ## 可搜索
@@ -67,7 +67,7 @@
 | -- |:----: | :--: | :--: | :--: | -- |
 | value/v-model | 选中项绑定值 | String/Array |  | true | - |
 | level | 等级 | String | province/city/district/street | - | district |
-| lastCode | 是否只获取最后一个级别的code | Boolean | - | - | true |
+| emitPath | 在选中节点改变时，是否返回由该节点所在的各级菜单的值所组成的数组，若设置 false，则只返回该节点的值 | Boolean | - | - | false |
 | props | 配置选项 | Object |  | false | json文件的value和label值 |
 | clearable | 可清除 | Boolean |  | false | true |
 | multiple | 多选 | Boolean |  | false | false |
@@ -91,3 +91,10 @@
 | 事件名称 | 说明 |	回调参数 |
 | -- |:----: | --- |
 | change |	当选中节点变化时触发 |	选中节点的值 |
+| expand-change	| 当展开节点发生变化时触发 |	各父级选项值组成的数组 |
+| blur |	当失去焦点时触发 |	(event: Event) |
+| focus |	当获得焦点时触发 |	(event: Event) |
+| visible-change |	下拉框出现/隐藏时触发 |	出现则为 true，隐藏则为 false |
+| remove-tag |	在多选模式下，移除Tag时触发 |	移除的Tag对应的节点的值 |
+
+tips: 更多配置项参考[el-casader文档](https://element.eleme.cn/2.10/#/zh-CN/component/cascader)

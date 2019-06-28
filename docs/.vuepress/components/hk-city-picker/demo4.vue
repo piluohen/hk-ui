@@ -6,7 +6,7 @@ el-row.hk-city-picker-demo4(:gutter="20")
     p.code code: {{ code }}
   el-col(:span="12")
     p 完整code多选
-    hk-city-picker(v-model="code2" :lastCode="false" multiple)
+    hk-city-picker(v-model="code2" emitPath multiple)
     p.code code: {{ code2 }}
 </template>
 

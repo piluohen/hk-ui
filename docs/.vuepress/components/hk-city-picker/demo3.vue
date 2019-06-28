@@ -2,11 +2,11 @@
 el-row.hk-city-picker-demo3(:gutter="20")
   el-col(:span="12")
     p 默认用法
-    hk-city-picker(v-model="code" :lastCode="false")
+    hk-city-picker(v-model="code" emitPath)
     p.code code: {{ code }}
   el-col(:span="12")
     p 双向绑定
-    hk-city-picker(v-model="code2" :lastCode="false")
+    hk-city-picker(v-model="code2" emitPath)
     p.code code: {{ code2 }}
 </template>
 
