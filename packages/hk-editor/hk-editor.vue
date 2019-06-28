@@ -1,19 +1,12 @@
 <template>
-  <div
-    :class="{fullscreen:fullscreen}"
-    class="tinymce-container"
-    :style="{width:containerWidth}"
-  >
-    <textarea
-      :id="tinymceId"
-      class="tinymce-textarea"
-    />
-    </div>
+  <div :class="{ fullscreen: fullscreen }" class="tinymce-container" :style="{ width: containerWidth }">
+    <textarea :id="tinymceId" class="tinymce-textarea" />
+  </div>
 </template>
 
 <script>
 import plugins from './plugins'
-import load from './dynamicLoadScript'
+import load from './../util/dynamicLoadScript'
 const tinymceCDN = 'https://cdn.jsdelivr.net/npm/tinymce-all-in-one@4.9.3/tinymce.min.js'
 export default {
   name: 'hk-editor',

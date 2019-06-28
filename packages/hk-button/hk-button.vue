@@ -1,10 +1,13 @@
 <template lang="pug">
-el-button.hk-button(:size="size" :type="type" v-bind="$attrs" @click="handleClick")
+el-tooltip(effect="dark" v-if="tips" :content="tips" placement="top-start")
+  el-button.hk-button(:size="size" :type="type" v-bind="$attrs" @click="handleClick")
+    slot
+el-button.hk-button(:size="size" v-else :type="type" v-bind="$attrs" @click="handleClick")
   slot
 </template>
 
 <script>
-import { Debounce } from './debounce.js'
+import { Debounce } from './../util/debounce'
 export default {
   name: 'hk-button',
   props: {
@@ -15,6 +18,10 @@ export default {
     size: {
       type: String,
       default: 'medium'
+    },
+    tips: {
+      type: String,
+      default: null
     }
   },
   methods: {

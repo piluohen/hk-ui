@@ -177,6 +177,7 @@
 | ----------- | -------------- | ------- | -------------------------------------------------- | ------ |
 | size        | 尺寸           | string  | medium / small / mini                              | —      |
 | type        | 类型           | string  | primary / success / warning / danger / info / text | —      |
+| tips        | 提示消息       | string  | -                                                  | —      |
 | plain       | 是否朴素按钮   | boolean | —                                                  | false  |
 | round       | 是否圆角按钮   | boolean | —                                                  | false  |
 | circle      | 是否圆形按钮   | boolean | —                                                  | false  |
