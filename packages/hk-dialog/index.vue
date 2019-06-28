@@ -5,6 +5,7 @@
     :before-close="handleClose"
     :width="width"
     :close-on-click-modal="preview"
+    :close-on-press-escape="preview"
     :append-to-body="true"
     :show-close="preview"
     v-bind="$attrs"
