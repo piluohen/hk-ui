@@ -11,11 +11,17 @@
 
 ```pug
 <template lang="pug">
-  hk-table-toolbar(title="列表标题" subtitle="描述信息")
-    el-button(size="small") 操作按钮1
-    el-button(size="small") 操作按钮2
+.table-toolbar-demo
+  hk-table-toolbar(title="列表标题1" subtitle="描述信息")
+    el-button(size="small" type="primary") 操作按钮1
+    el-button(size="small" type="primary") 操作按钮2
 
+  hk-table-toolbar(title="列表标题2")
+    el-tag(slot="subtitle") slot参数
+    el-button(size="small" type="primary") 操作按钮1
+    el-button(size="small" type="primary") 操作按钮2
 </template>
+
 
 ```
 
@@ -25,3 +31,9 @@
 | -- |:----: | :--: | :--: | :--: | -- |
 | title | 标题 | String |  | false |  |
 | subtitle | 描述信息 | String |  | false |  |
+
+## Slot
+
+| name | 描述 |
+| -- |:----: |
+| subtitle | 次标题(name='subtitle', 可自定义次标题内容) |

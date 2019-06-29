@@ -17,6 +17,8 @@ import HkDialog from './hk-dialog'
 import HkPreview from './hk-preview'
 import HkDatePicker from './hk-date-picker'
 import HkPlayer from './hk-player'
+import hkTableColumnsFilter from './hk-table-columns-filter'
+import hkFilterTable from './hk-filter-table'
 
 const components = [
   HkCountup,
@@ -37,7 +39,9 @@ const components = [
   HkDialog,
   HkPreview,
   HkDatePicker,
-  HkPlayer
+  HkPlayer,
+  hkTableColumnsFilter,
+  hkFilterTable
 ]
 
 const install = Vue => {
@@ -69,7 +73,9 @@ export {
   HkDialog,
   HkPreview,
   HkDatePicker,
-  HkPlayer
+  HkPlayer,
+  hkTableColumnsFilter,
+  hkFilterTable
 }
 
 export default { install }
