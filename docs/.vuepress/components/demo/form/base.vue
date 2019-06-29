@@ -1,5 +1,6 @@
 <template lang="pug">
-  .demo-form
+  .hk-ui
+    .code {{model}}
     hk-form(
       ref="form"
       v-model="model"

@@ -125,11 +125,11 @@ export default {
           v-model={this.form}
           inline={true}
           items={row.children}
-          // enterSubmit={true}
-          // formList={row.children}
-          // options={options}
-          // contentWidth={'auto'}
-          // clearable={clearable}
+        // enterSubmit={true}
+        // formList={row.children}
+        // options={options}
+        // contentWidth={'auto'}
+        // clearable={clearable}
         />
       )
     },
@@ -158,9 +158,10 @@ export default {
     },
     getForm () {
       let params = {
-        ...this.form,
-        ...this.$refs.form.getForm()
+        ...this.form
+        // ...this.$refs.form.getForm()
       }
+      console.log(this.form)
       return params
     },
     getParams () {
@@ -170,7 +171,7 @@ export default {
         let [startTime, endTime] = form.date
         let allParams
         if (this.$refs.form) {
-          allParams = this.$refs.form.getForm()
+          // allParams = this.$refs.form.getForm()
         }
         params = {
           startTime,
@@ -179,12 +180,13 @@ export default {
         }
       } else if (this.$refs.form) {
         params = {
-          ...this.$refs.form.getForm()
+          // ...this.$refs.form.getForm()
         }
       }
       Object.keys(params).forEach(key => {
         if (params[key] === '' || params[key] === null || params[key] === undefined) delete params[key]
       })
+      console.log(params)
       this.$emit('submit', params)
     }
   }
