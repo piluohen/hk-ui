@@ -1,6 +1,6 @@
 <template lang="pug">
 .hk-player(:class="getClass")
-  .hk-player-video(ref="video")
+  .hk-player-video(ref="video" :style="{minHeight:heigth+'px'}")
   .hk-player-clear(
     v-show="showClear && sources.length"
     @click="clear"
@@ -30,6 +30,10 @@ export default {
     showClear: {
       type: Boolean,
       default: false
+    },
+    heigth: {
+      type: String,
+      default: '400'
     }
   },
   data () {
@@ -133,7 +137,7 @@ export default {
   &-video {
     height: 100%;
     min-width: 400px;
-    min-height: 400px;
+    // min-height: 400px;
     overflow: hidden;
   }
   &-clear {
