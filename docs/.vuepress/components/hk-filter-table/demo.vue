@@ -1,6 +1,10 @@
 <template lang="pug">
-.table-demo
-  hk-table(
+.filter-table-demo
+  hk-table-toolbar(title="表头筛选列表")
+    hk-button(@click="change") 选择表头
+  hk-filter-table(
+    ref="table"
+    v-model="isShow"
     :columns="columns"
     :tableData="tableData"
   )
@@ -11,11 +15,18 @@ import columns from './columns'
 export default {
   data () {
     return {
-      tableData: [{ companyName: '格式化内容' }], // 出入表格数据
+      isShow: false,
+      tableData: [{
+        companyName: '格式化内容',
+        selected: '默认选中'
+      }], // 表格数据
       columns: columns(this), // 列表 字段
     }
   },
   methods: {
+    change () {
+      this.isShow = true
+    },
     handleClickSelete () { }
   }
 }
