@@ -15,6 +15,10 @@ export default {
       type: Object,
       default: () => ({})
     },
+    defaultParams: { // 预设请求参数，需要通过计算属性获得
+      type: Object,
+      default: () => ({})
+    },
     columns: { // 列表字段
       type: Array,
       default: () => []
@@ -26,18 +30,6 @@ export default {
     paginationable: { // 是否分页
       type: Boolean,
       default: true
-    },
-    rowKey: { // 行数据的key,
-      type: [String, Function]
-    },
-    rowClassName: { //
-      type: [String, Function]
-    },
-    headerRowClassName: { // 表头单元格的 className
-      type: [String, Function]
-    },
-    highlightCurrentRow: { // 是否要高亮当前行
-      type: Boolean
     },
     size: { // 每一页的数据量
       type: String
@@ -56,7 +48,7 @@ export default {
   },
   computed: {
     pageSizes () {
-      const pageSizes = [10, 20, 30, 40, 50, 100, this.pageSize].sort((a, b) => a - b)
+      const pageSizes = [10, 20, 30, 40, 50, 100, this.size].sort((a, b) => a - b)
       return uniq(pageSizes)
     }
   },
@@ -68,12 +60,13 @@ export default {
   },
   methods: {
     formatter (row, column, cellValue, index) {
-      return cellValue === undefined || cellValue === null ? '-' : cellValue
+      return cellValue === undefined || cellValue === null || cellValue === '' ? '-' : cellValue
     },
     fetch () {
       let params = {
         page: this.page,
         size: this.pageSize,
+        ...this.defaultParams,
         ...this.params
       }
       const pollInterval = () => { // 递归定时刷新
@@ -174,16 +167,13 @@ export default {
       )
     }
     return (
-      <div class="hekr-table">
+      <div class="hk-table">
         <el-table
           v-loading={this.loading}
           ref="table"
+          attrs={this.$attrs}
           size={this.size}
           data={this.data}
-          row-key={this.rowKey}
-          row-class-name={this.rowClassName}
-          header-row-class-name={this.headerRowClassName}
-          highlight-current-row={this.highlightCurrentRow}
           on-current-change={this.currentChange}
           on-row-dblclick={this.handledbClick}
           on-selection-change={this.handleSelectionChange}
@@ -222,5 +212,10 @@ export default {
 <style lang="scss">
 .hk-table {
   width: 100%;
+  .el-table__header,
+  .el-table__footer,
+  .el-table__body {
+    margin: 0;
+  }
 }
 </style>

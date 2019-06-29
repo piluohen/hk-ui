@@ -2,7 +2,10 @@
 el-row.hk-table-toolbar
   el-col.hk-table-toolbar-title(:span="8")
     .maintitle {{ title }}
-    .subtitle {{ subtitle }}
+    .subtitle
+      div
+        slot(name="subtitle")
+      span {{ subtitle }}
   el-col.hk-table-toolbar-btns(:span="16")
     slot
 </template>
@@ -26,6 +29,8 @@ export default {
 <style lang="scss">
 .hk-table-toolbar {
   padding: 20px 0;
+  display: flex;
+  align-items: center;
 
   .maintitle {
     height: 30px;
