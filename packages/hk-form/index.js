@@ -43,6 +43,18 @@ export default {
     validateHandle (...args) {
       this.$emit('validate', ...args)
     },
+    // 生成placeholder
+    placeholder (data) {
+      const keys = ['select', 'picker', 'cascader']
+      let text = '输入'
+      let isSelect = keys.some(v => {
+        return data.tag.indexOf(v) > -1
+      })
+      if (isSelect) {
+        text = '选择'
+      }
+      return (data.attrs && data.attrs.placeholder) || `请${text}${data.label}`
+    },
     // render formItem
     renderFormItem (item, index, render) {
       return (
@@ -61,7 +73,8 @@ export default {
     renderItem (h) {
       return this.items.map((item, index) => {
         let input = val => {
-          this.model[item.key] = val
+          // this.model 可为空，新增属性必须使用$set触发视图更新
+          this.$set(this.model, item.key, val)
         }
         let value = this.model[item.key]
         // 渲染控件
@@ -69,7 +82,10 @@ export default {
           ? item.render(h, { model: this.model, item, value, input })
           : h(item.tag || 'el-input', {
             ref: item.ref,
-            attrs: item.attrs,
+            attrs: {
+              ...item.attrs,
+              placeholder: this.placeholder(item)
+            },
             props: {
               ...item.props,
               value
@@ -95,7 +111,11 @@ export default {
         }
       })
     },
-    // render children
+    /**
+     * render children
+     * @param {*} h creatment
+     * @param {*} item 子项
+     */
     renderChildren (h, item) {
       return item.children && [...item.children.options].map((option, i) => {
         let childrenTag = item.children.tag

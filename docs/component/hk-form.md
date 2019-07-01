@@ -327,7 +327,18 @@ export default {
 
 | 参数 | 描述 | 类型 | 可选值 | 必须 | 默认值 |
 | -- |:----: | :--: | :--: | :--: | -- |
-| lable | label文字 | String |  | 是 |  |
+| v-model | 表单数据， | Object |  | 是 |  |
+| items | 表单子项 | Array |  | 是 |  |
+
+更多配置请参考：[el-form](https://element.eleme.cn/#/zh-CN/component/form)
+
+<font color="red">注意：使用el-checkbox-group组件时，v-model必须传入el-checkbox-group默认值[]，否则报错</font>
+
+## items Api
+
+| 参数 | 描述 | 类型 | 可选值 | 必须 | 默认值 |
+| -- |:----: | :--: | :--: | :--: | -- |
+| label | label文字 | String |  | 是 |  |
 | tag | 标签元素名称 | String | el-input等/自定义组件 | 否 | el-input |
 | key | 表单model的名称 | String |  | 是 |  |
 | props | 组件props传参 | Object |  | 否 |  |
@@ -336,7 +347,7 @@ export default {
 | col | 表单子项宽列 | Integer | 0-24 之间的整数 | 否 | 24 |
 | children | 组件子项配置 | Object | el-option等 | 否 |  |
 
-## children
+## children Api
 
 使用[el-select](https://element.eleme.cn/#/zh-CN/component/select) / [el-radio-group](https://element.eleme.cn/#/zh-CN/component/radio) / [el-checkbox-group](https://element.eleme.cn/#/zh-CN/component/checkbox) 的时候需要配置
 
@@ -345,7 +356,7 @@ export default {
 | tag | 标签元素名称 | String | el-option/el-radio/el-radio-button/el-checkbox/el-checkbox-button | 否 |  |
 | options | 子项配置 | Object |  | 否 |  |
 
-## children options 配置
+## children options Api
 此处只列出常用三项，其他参看 [el-select](https://element.eleme.cn/#/zh-CN/component/select) / [el-radio-group](https://element.eleme.cn/#/zh-CN/component/radio) / [el-checkbox-group](https://element.eleme.cn/#/zh-CN/component/checkbox)
 
 | 参数 | 描述 | 类型 | 可选值 | 必须 | 默认值 |

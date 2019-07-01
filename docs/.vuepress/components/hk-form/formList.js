@@ -8,7 +8,6 @@ export default [
       { required: true, message: '请输入名称', trigger: 'change' }
     ],
     attrs: {
-      placeholder: "请输入名称",
       maxlength: 10
     },
     on: {
@@ -35,7 +34,7 @@ export default [
     }
   },
   {
-    label: '选择类型',
+    label: '类型',
     tag: 'el-select',
     key: 'type',
     props: {
@@ -222,7 +221,10 @@ export default [
   {
     label: '时间选择',
     tag: 'hk-date-picker',
-    key: 'time'
+    key: 'time',
+    props: {
+      type: 'datetimerange'
+    }
   },
   {
     label: '评分',

@@ -23,18 +23,7 @@ export default {
   data () {
     return {
       model: {
-        name: '',
-        switch: true,
-        type: '',
-        radio: '',
-        checkbox: [],
-        number: '0',
-        cascader: [],
-        slider: 0,
-        time: '',
-        rate: 4,
-        color: '',
-        desc: ''
+        checkbox: []
       },
       formItems: formList
     }
