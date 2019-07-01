@@ -99,7 +99,6 @@ export default {
               keydown: (event) => {
                 if (event.keyCode === 13) {
                   this.$emit('enter')
-                  console.log('点击了enter', event)
                 }
               },
               ...item.nativeOn

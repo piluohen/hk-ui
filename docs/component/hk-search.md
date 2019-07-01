@@ -8,34 +8,30 @@
 
 ::: tip 说明
 
-支持回车搜索,默认支持可清除配置，不想要清除配置[[clearable]]为[[false]],回调[[submit]]数据是所输入内容
+支持回车搜索,默认支持可清除配置，不想要清除配置[[attrs]][[clearable]]为[[false]],回调[[submit]]数据是所输入内容
 :::
 
 ```html
 <template lang="pug">
-.hk-ui-search
+.hk-ui
   hk-search(:searchList="searchList" @submit="submit")
-  p 输入内容：{{form}}
+  p.code 输入内容：{{form}}
 </template>
 <script>
   export default {
-    name: 'hk-ui-search.1',
+    name: 'hk-ui-search',
     data() {
       return {
+        selsect: '',
         form: {},
+        list: [{ text: '选项1', value: 1 }, { text: '选项2', value: 2 }],
         searchList: [
           {
-            title: '选择设备:',
-            type: 'hk-form',
-            children: [
-              {
-                type: 'input',
-                key: 'keyword',
-                props: {
-                  placeholder: '搜索设备名称/设备ID'
-                }
-              }
-            ]
+            tag: 'el-input',
+            key: 'keyword',
+            attrs: {
+              placeholder: '搜索设备名称/设备ID'
+            }
           }
         ]
       }
@@ -43,7 +39,9 @@
     methods: {
       submit(data) {
         this.form = data
-        console.log(data, 77)
+      },
+      change(data) {
+        this.selsect = data
       }
     }
   }
