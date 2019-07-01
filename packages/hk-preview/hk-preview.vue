@@ -64,7 +64,7 @@ export default {
   watch: {
     index (val) {
       // 监听index的值，如果已初始化了carousel且carousel的activeIndex与index不相等才执行重新对carousel赋值活动索引
-      if (this.$refs['carousel'] && this.$refs['carousel'].activeIndex !== val) {
+      if (this.$refs['carousel']) {
         this.$refs.carousel.setActiveItem(val)
         this.showArrowMethod(val)
       }
@@ -82,6 +82,7 @@ export default {
     },
     // 显示左右箭头方法
     showArrowMethod (index) {
+      this.$emit('update:index', index)
       if (!this.isInfinite) {
         this.hideLeft = index === 0
         this.hideRight = index === this.list.length - 1

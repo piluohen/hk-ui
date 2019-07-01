@@ -11,7 +11,7 @@
   .img-list
     .item(v-for="(item, i) in fileList" :key="i")
       el-image(:src="item.url" fit="cover" @click="handleShowPreview(i)")
-  hk-preview(v-model="showPreview" :list="fileList" :index="imgIndex" :isInfinite="isInfinite")
+  hk-preview(v-model="showPreview" :list="fileList" :index.sync="imgIndex" :isInfinite="isInfinite")
   hk-button(type="primary" @click="handleToggle") {{ `${isInfinite?'关闭':'开启'}循环滚动` }}
 </template>
 
@@ -54,3 +54,5 @@ export default {
 | list | 图片列表 | Array |  | 是 | [{url: ''}] |
 | imgIndex | 当前展示图片索引 | Number |  | 是 | 0 |
 | isInfinite | 是否开启无限循环模式 | Boolean | true \| false  | 否 | true |
+
+注意：imgIndex应加上.sync

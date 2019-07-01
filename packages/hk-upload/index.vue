@@ -45,7 +45,7 @@
             :loading="isUploading"
             :disabled="isUploading"
           ) {{ options.btnName }}
-    hk-preview(v-model="showPreview" :list="fileList" :index="imgIndex")
+    hk-preview(v-model="showPreview" :list="fileList" :index.sync="imgIndex")
 </template>
 
 <script>
