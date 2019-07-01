@@ -83,6 +83,7 @@ export default {
           : h(item.tag || 'el-input', {
             ref: item.ref,
             attrs: {
+              clearable: true,
               ...item.attrs,
               placeholder: this.placeholder(item)
             },
@@ -95,6 +96,12 @@ export default {
               input
             },
             nativeOn: {
+              keydown: (event) => {
+                if (event.keyCode === 13) {
+                  this.$emit('enter')
+                  console.log('点击了enter', event)
+                }
+              },
               ...item.nativeOn
             }
           },

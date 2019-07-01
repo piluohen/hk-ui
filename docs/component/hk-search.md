@@ -3,7 +3,7 @@
 ## 输入框搜索
 
 <template>
-  <hk-ui-search.1/>
+  <hk-ui-search/>
 </template>
 
 ::: tip 说明
@@ -52,9 +52,9 @@
 
 ## 下拉框搜索
 
-<template>
+<!-- <template>
   <hk-ui-search/>
-</template>
+</template> -->
 
 ::: tip 说明
 
@@ -146,9 +146,9 @@
 支持[[daterange]]和[[datetimerange]]两个属性，不允许选择今天之后的配置，[[disabledDate]]为[[false]]可以选择所有日期，目前可配置只能支持一个搜索类型和时间搜索
 :::
 
-<template>
+<!-- <template>
   <hk-ui-search.2/>
-</template>
+</template> -->
 
 ```js
 <template lang="pug">
@@ -182,9 +182,9 @@ export default {
 
 ## 超多内容搜索
 
-<template>
+<!-- <template>
   <hk-ui-search.3/>
-</template>
+</template> -->
 
 ```vue
 <template lang="pug">

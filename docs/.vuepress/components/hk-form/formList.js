@@ -34,6 +34,13 @@ export default [
     }
   },
   {
+    render: (h, item, form) => {
+      return (<hk-button>
+        render 按钮
+      </hk-button >)
+    }
+  },
+  {
     label: '类型',
     tag: 'el-select',
     key: 'type',
