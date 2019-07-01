@@ -12,7 +12,21 @@ export default {
       form: {},
       searchList: [
         {
-          type: 'daterange'
+          label: '时间选择:',
+          tag: 'hk-date-picker',
+          key: 'time',
+          props: {
+            type: 'datetimerange',
+            placeholder: '请选择时间'
+          }
+        },
+        {
+          tag: 'hk-date-picker',
+          key: 'time1',
+          props: {
+            type: 'daterange',
+            placeholder: '请选择时间'
+          }
         }
       ]
     }

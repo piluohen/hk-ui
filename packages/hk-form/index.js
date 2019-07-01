@@ -53,7 +53,7 @@ export default {
       if (isSelect) {
         text = '选择'
       }
-      return (data.attrs && data.attrs.placeholder) || `请${text}${data.label}`
+      return (data.attrs && data.attrs.placeholder) || `请${text}${data.label || '内容'}`
     },
     // render formItem
     renderFormItem (item, index, render) {
@@ -161,7 +161,7 @@ export default {
         inline={this.inline}
         onValidate={this.validateHandle}
       >
-        <el-row>
+        <el-row class="from-list-all">
           {this.renderItem(createElement)}
         </el-row>
       </el-form>
