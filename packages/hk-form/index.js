@@ -59,7 +59,10 @@ export default {
           : h(item.tag, {
             ref: item.ref,
             attrs: item.attrs,
-            props: { ...item.props, value: value },
+            props: {
+              ...item.props,
+              value
+            },
             on: {
               ...item.on,
               input
@@ -85,7 +88,7 @@ export default {
         if (!this.inline) {
           return (
             <el-col span={item.col}>
-              { this.renderFormItem(item, index, render) }
+              {this.renderFormItem(item, index, render)}
             </el-col>
           )
         } else {
@@ -100,6 +103,7 @@ export default {
           key={index}
           prop={item.key}
           label={item.label}
+          label-width={item.labelWidth}
           rules={item.rules}
         >
           {render}
@@ -119,12 +123,14 @@ export default {
          * 参考https://github.com/vuejs/jsx/issues/49
          */
         props={{ model: this.model }}
-        attrs={ this.$attrs }
-        size={ this.size }
-        inline={ this.inline }
-        onValidate={ this.validateHandle }
+        attrs={this.$attrs}
+        size={this.size}
+        inline={this.inline}
+        onValidate={this.validateHandle}
       >
-        { this.renderItem(createElement) }
+        <el-row>
+          {this.renderItem(createElement)}
+        </el-row>
       </el-form>
     )
   }

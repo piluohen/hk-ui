@@ -1,6 +1,5 @@
 <script>
-import uniq from 'lodash/uniq'
-
+import lodash from 'lodash'
 export default {
   name: 'hk-table',
   props: {
@@ -49,7 +48,7 @@ export default {
   computed: {
     pageSizes () {
       const pageSizes = [10, 20, 30, 40, 50, 100, this.size].sort((a, b) => a - b)
-      return uniq(pageSizes)
+      return lodash.uniq(lodash.compact(pageSizes))
     }
   },
   mounted () {
@@ -196,7 +195,7 @@ export default {
                 align={item.align}
                 selectable={item.selectable}
                 reserve-selection={item.reserveSelection}
-                show-overflow-tooltip={item.showOverflowTooltip}
+                show-overflow-tooltip={item.showOverflowTooltip || true}
               >
                 {render}
               </el-table-column>
