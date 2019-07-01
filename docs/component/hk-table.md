@@ -104,6 +104,7 @@ export default defaultColumns
 | pollInterval | 自动刷新间隔（设置后会定时请求数据） | Number |  | false | 0 |
 | paginationable | 是否开启分页 | Boolean |  | false | true |
 | size    | 每页的size数量 | Number |  | false |  |
+| path    | 自定义接口路径(适用于路径中需要传入参数的列表) | String |  | false |  |
 
 ## Events
 
