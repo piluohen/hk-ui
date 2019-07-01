@@ -1,5 +1,5 @@
 <script>
-import uniq from 'lodash/uniq'
+import lodash from 'lodash'
 
 export default {
   name: 'hk-table',
@@ -33,6 +33,10 @@ export default {
     },
     size: { // 每一页的数据量
       type: String
+    },
+    path: { // 接口路径
+      type: String,
+      default: ''
     }
   },
   data () {
@@ -49,7 +53,7 @@ export default {
   computed: {
     pageSizes () {
       const pageSizes = [10, 20, 30, 40, 50, 100, this.size].sort((a, b) => a - b)
-      return uniq(pageSizes)
+      return lodash.uniq(lodash.compact(pageSizes))
     }
   },
   mounted () {
@@ -76,7 +80,7 @@ export default {
         }
       }
       const uid = this.uid
-      const fetch = this.api(params)
+      const fetch = this.api(params, this.path)
       fetch
         .then(data => {
           // 只显示最后一次操作的数据
@@ -196,7 +200,7 @@ export default {
                 align={item.align}
                 selectable={item.selectable}
                 reserve-selection={item.reserveSelection}
-                show-overflow-tooltip={item.showOverflowTooltip}
+                show-overflow-tooltip={item.showOverflowTooltip || true}
               >
                 {render}
               </el-table-column>
