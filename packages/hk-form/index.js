@@ -48,7 +48,7 @@ export default {
       const keys = ['select', 'picker', 'cascader']
       let text = '输入'
       let isSelect = keys.some(v => {
-        return data.tag.indexOf(v) > -1
+        return (data.tag && data.tag.indexOf(v) > -1)
       })
       if (isSelect) {
         text = '选择'
