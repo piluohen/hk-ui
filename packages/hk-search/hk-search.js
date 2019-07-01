@@ -26,6 +26,10 @@ export default {
       type: String,
       default: '60px'
     },
+    title: {
+      type: String,
+      default: ''
+    },
     showSubmit: {
       type: Boolean,
       default: true
@@ -38,9 +42,8 @@ export default {
   data () {
     return {
       fold: true,
-      form: {
-        date: null
-      }
+      date: null,
+      form: {}
     }
   },
   created () {
@@ -53,37 +56,31 @@ export default {
   },
   render (h) {
     return (
-      <div class="hk-ui-search-all">
-        <div class="hk-search-all">
+      <div class="hk-search-all">
+        <div class={this.more ? 'search-all-more' : 'search-all'}>
           <div
             class="hk-search"
             style={{ height: this.fold ? '40px' : 'auto', overflowY: this.fold ? 'hidden' : 'auto' }}
           >
-            {this.searchList.map(row => {
-              let content
-              if (row.type === 'hk-form') {
-                content = this.renderForm(row)
-              } else if (row.type === 'daterange' || row.type === 'datetimerange') {
-                content = this.renderDaterage(row)
-              } else {
-                content = this.renderList(row)
-              }
-              return (
-                <div class="hk-search-row">
-                  {row.title ? (
-                    <div
-                      class="hk-search-title"
-                      style={{
-                        minWidth: this.labelMinWidth
-                      }}
-                    >
-                      {row.title}
-                    </div>
-                  ) : null}
-                  <div class="hk-search-content">{content}</div>
-                </div>
-              )
-            })}
+            {this.title ? (
+              <div
+                class="hk-search-title"
+                style={{
+                  minWidth: this.labelMinWidth
+                }}
+              >
+                {this.title}
+              </div>
+            ) : null}
+            <div class="hk-search-row">
+              <hk-form
+                ref="form"
+                v-model={this.form}
+                inline={true}
+                items={this.searchList}
+                onEnter={this.getParams}
+              />
+            </div>
           </div>
           {this.showSubmit ? (
             <div class="hk-search-button">
@@ -107,36 +104,14 @@ export default {
       let arr = ['daterange', 'datetimerange']
       let target = this.searchList.find(row => arr.includes(row.type))
       if (target) {
-        this.form.date = Array.isArray(target.defaultValue) ? target.defaultValue : getDefaultValue(target.defaultValue)
+        this.date = Array.isArray(target.defaultValue) ? target.defaultValue : getDefaultValue(target.defaultValue)
       }
       this.getParams()
-    },
-    renderForm (row) {
-      // let options = {
-      //   inline: true
-      // }
-      // let clearable = true
-      // if (row.clearable === 'false' || row.clearable === false) {
-      //   clearable = false
-      // }
-      return (
-        <hk-form
-          ref="form"
-          v-model={this.form}
-          inline={true}
-          items={row.children}
-          // enterSubmit={true}
-          // formList={row.children}
-          // options={options}
-          // contentWidth={'auto'}
-          // clearable={clearable}
-        />
-      )
     },
     renderList (row) {
       return (
         <div class="hk-search-item">
-          {row.children.map(item => {
+          {row.map(item => {
             return item.render()
           })}
         </div>
@@ -152,39 +127,16 @@ export default {
           value-format="timestamp"
           type={row.type}
           onChange={this.getParams}
-          v-model={this.form.date}
+          v-model={this.date}
         />
       )
     },
-    getForm () {
-      let params = {
-        ...this.form,
-        ...this.$refs.form.getForm()
-      }
-      return params
-    },
     getParams () {
-      let form = this.form
-      let params
-      if (form.date) {
-        let [startTime, endTime] = form.date
-        let allParams
-        if (this.$refs.form) {
-          allParams = this.$refs.form.getForm()
-        }
-        params = {
-          startTime,
-          endTime: endTime + 86400000,
-          ...allParams
-        }
-      } else if (this.$refs.form) {
-        params = {
-          ...this.$refs.form.getForm()
-        }
-      }
+      let params = this.form
       Object.keys(params).forEach(key => {
         if (params[key] === '' || params[key] === null || params[key] === undefined) delete params[key]
       })
+      console.log(params)
       this.$emit('submit', params)
     }
   }
