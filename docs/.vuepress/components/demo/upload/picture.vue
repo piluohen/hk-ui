@@ -5,6 +5,7 @@
     type="picture"
     :action="action"
     :configs="configs"
+    :disabled="false"
     @complate="handleComplate"
   )
   el-button(type="primary" size="small" :loading="loading" :disabled="loading" @click="handleSubmit") 保存表单
