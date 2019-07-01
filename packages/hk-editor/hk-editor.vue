@@ -160,7 +160,7 @@ export default {
             failure('图片格式错误')
           }
           function uploadPic () {
-            this.upload(blobInfo.blob()).then(res => {
+            _this.upload(blobInfo.blob()).then(res => {
               success(res.url)
             }).catch()
           }
