@@ -1,5 +1,6 @@
 <script>
 import lodash from 'lodash'
+
 export default {
   name: 'hk-table',
   props: {
@@ -32,6 +33,10 @@ export default {
     },
     size: { // 每一页的数据量
       type: String
+    },
+    path: { // 接口路径
+      type: String,
+      default: ''
     }
   },
   data () {
@@ -75,7 +80,7 @@ export default {
         }
       }
       const uid = this.uid
-      const fetch = this.api(params)
+      const fetch = this.api(params, this.path)
       fetch
         .then(data => {
           // 只显示最后一次操作的数据
