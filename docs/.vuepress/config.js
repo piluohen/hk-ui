@@ -23,7 +23,8 @@ let component = [
   'hk-dialog',
   'hk-date-picker',
   'hk-player',
-  'hk-filter-table'
+  'hk-filter-table',
+  'hk-card'
 ]
 module.exports = {
   base: baseMap[process.env.ENV],
