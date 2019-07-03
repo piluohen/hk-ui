@@ -25,14 +25,14 @@ export default {
   name: 'hk-map',
   props: {
     latitude: {
-      type: Number
+      type: [Number, String]
     },
     height: {
       type: String,
       default: '300px'
     },
     longitude: {
-      type: Number
+      type: [Number, String]
     },
     disabled: {
       type: Boolean,
@@ -46,7 +46,7 @@ export default {
   computed: {
     lnglat () {
       if (this.longitude && this.longitude !== undefined && this.latitude && this.latitude !== undefined) {
-        return [this.longitude, this.latitude]
+        return [Number(this.longitude), Number(this.latitude)]
       }
       return undefined
     }
@@ -67,13 +67,10 @@ export default {
         center: this.lnglat,
         zoom: 13
       })
-      this.setCenterMap()
+      this.$nextTick(() => {
+        this.setCenterMap()
+      })
     })
-  },
-  watch: {
-    lnglat () {
-      if (this.lnglat) this.setCenter(this.lnglat)
-    }
   },
   methods: {
     setCenterMap () {
@@ -97,7 +94,7 @@ export default {
           placeSearch.on('markerClick', this.selectMarker)
         })
       }
-      this.setCenter(this.lnglat)
+      this.lnglat && this.setCenter(this.lnglat)
     },
     setMarker (lnglat) {
       if (!this.marker) {
@@ -134,8 +131,8 @@ export default {
     setCenter (lnglat) {
       this.$nextTick(() => {
         this.setMarker(lnglat)
-        this.map.setCenter(lnglat)
       })
+      this.map.setCenter(lnglat)
     },
     handleSearch (detailedAddress) {
       if (this.disabled || !this.geocoder) return
