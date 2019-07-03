@@ -178,6 +178,7 @@ export default {
 | headers | 请求headers | Object |  | false |  |
 | configs | 配置项 | Object | limitNum(限制数) \| limitSize(文件大小) \| limitType(限制类型) \| btnName(操作按钮文案) | false | 10 \| 10 \| image/png,image/jpeg,image/gif \| 点击上传 |
 | btnConfig | 按钮配置项 | Object | type(类型) \| size(大小) \| icon(icon图标) \| round(圆角) | false | primary \| small \| 空值 \| false |
+| disabled | 禁用与否 | Boolean | true \| false | 否 | true |
 
 ## Slot
 

@@ -27,10 +27,9 @@ npm run build
 npm run lib
 ```
 
-## 项目地址
+## 文档地址
 
-- 测试地址： https://hy.hekr.me/hk-ui-test/web/index.html
-- 正式地址： https://hy.hekr.me/hk-ui/web/index.html
+- 地址： https://hy.hekr.me/hk-ui/web/index.html
 
 ## 项目目录
 
@@ -57,5 +56,3 @@ template
 ## 源码地址
 
 GitLab：[http://gitlab.hekr.me/front-end/hk-ui](http://gitlab.hekr.me/front-end/hk-ui)
-
-GitHub：[https://github.com/xkloveme/hk-ui](https://github.com/xkloveme/hk-ui)

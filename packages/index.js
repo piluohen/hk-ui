@@ -19,6 +19,7 @@ import HkDatePicker from './hk-date-picker'
 import HkPlayer from './hk-player'
 import hkTableColumnsFilter from './hk-table-columns-filter'
 import hkFilterTable from './hk-filter-table'
+import HKcard from './hk-card'
 
 const components = [
   HkCountup,
@@ -41,7 +42,8 @@ const components = [
   HkDatePicker,
   HkPlayer,
   hkTableColumnsFilter,
-  hkFilterTable
+  hkFilterTable,
+  HKcard
 ]
 
 const install = Vue => {
@@ -75,7 +77,8 @@ export {
   HkDatePicker,
   HkPlayer,
   hkTableColumnsFilter,
-  hkFilterTable
+  hkFilterTable,
+  HKcard
 }
 
 export default { install }

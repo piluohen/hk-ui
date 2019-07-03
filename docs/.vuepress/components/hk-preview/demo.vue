@@ -3,7 +3,7 @@
   .img-list
     .item(v-for="(item, i) in fileList" :key="i")
       el-image(:src="item.url" fit="cover" @click="handleShowPreview(i)")
-  hk-preview(v-model="showPreview" :list="fileList" :index="imgIndex" :isInfinite="isInfinite")
+  hk-preview(v-model="showPreview" :list="fileList" :index.sync="imgIndex" :isInfinite="isInfinite")
   hk-button(type="primary" @click="handleToggle") {{ `${isInfinite?'关闭':'开启'}循环滚动` }}
 </template>
 

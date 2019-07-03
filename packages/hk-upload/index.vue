@@ -10,9 +10,9 @@
         v-if="!isUploading"
       )
         i.el-icon-view(@click="handlePictureCardPreview(index)")
-        i.el-icon-delete(@click="handleDelete(index)")
+        i.el-icon-delete(v-if="!disabled" @click="handleDelete(index)")
     el-upload(
-      v-if="type !== 'picture' || this.fileList.length < this.options.limitNum"
+      v-if="(type !== 'picture' || fileList.length < options.limitNum) && !disabled"
       ref="upload"
       :action="action"
       :headers="headers"
@@ -45,7 +45,7 @@
             :loading="isUploading"
             :disabled="isUploading"
           ) {{ options.btnName }}
-    hk-preview(v-model="showPreview" :list="fileList" :index="imgIndex")
+    hk-preview(v-model="showPreview" :list="fileList" :index.sync="imgIndex")
 </template>
 
 <script>
@@ -72,6 +72,10 @@ export default {
     listType: {
       type: String,
       default: 'text'
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     },
     configs: {
       required: false,
