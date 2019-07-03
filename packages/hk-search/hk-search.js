@@ -17,16 +17,7 @@ export default {
   data () {
     return {
       fold: true,
-      date: null,
       form: {}
-    }
-  },
-  created () {
-    this.hasDate && this.getDateDafaultValue()
-  },
-  computed: {
-    hasDate () {
-      return this.searchList.some(item => item.type === 'daterange' || item.type === 'datetimerange')
     }
   },
   render (h) {
