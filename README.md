@@ -56,3 +56,22 @@ template
 ## 源码地址
 
 GitLab：[http://gitlab.hekr.me/front-end/hk-ui](http://gitlab.hekr.me/front-end/hk-ui)
+
+## 版本说明
+
+0.1.1
+基础版本
+
+0.1.2
+
+0.1.3
+
+0.1.4
+
+0.1.5
+
+1. 修复 hk-form 重置表单后可能会出现无法输入表单的 bug
+
+0.1.6
+
+1. 修复 hk-table 数据无法及时更新的情况
