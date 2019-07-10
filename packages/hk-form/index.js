@@ -73,8 +73,12 @@ export default {
     renderItem (h) {
       return this.items.map((item, index) => {
         let input = val => {
-          // this.model 可为空，新增属性必须使用$set触发视图更新
-          this.$set(this.model, item.key, val)
+          let obj = {}
+          obj[item.key] = val
+          this.model = {
+            ...this.model,
+            ...obj
+          }
         }
         let value = this.model[item.key]
         // 渲染控件
