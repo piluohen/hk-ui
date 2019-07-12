@@ -59,7 +59,7 @@ export default {
         value: 'id',
         label: 'name',
         children: 'area',
-        checkStrictly: true,
+        // checkStrictly: true,
         emitPath: this.emitPath,
         expandTrigger: 'hover',
         multiple: this.multiple,
@@ -79,7 +79,9 @@ export default {
     }
   },
   mounted () {
-    this.getMap()
+    setTimeout(() => {
+      this.getMap()
+    }, 0)
   },
   methods: {
     getMap () {
