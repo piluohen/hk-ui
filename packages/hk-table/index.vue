@@ -57,6 +57,11 @@ export default {
       return uniq(compact(pageSizes))
     }
   },
+  watch: {
+    tableData (val) {
+      this.data = val
+    }
+  },
   mounted () {
     this.search()
   },
