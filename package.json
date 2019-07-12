@@ -1,6 +1,6 @@
 {
   "name": "hk-ui",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A Component Library Base Element-ui for Vue.js.",
   "keywords": ["element-ui", "vue", "components"],
   "files": ["lib/hk-ui.umd.min.js", "lib/hk-ui.css", "packages"],

@@ -75,3 +75,7 @@ GitLab：[http://gitlab.hekr.me/front-end/hk-ui](http://gitlab.hekr.me/front-end
 0.1.6
 
 1. 修复 hk-table 数据无法及时更新的情况
+
+0.1.7
+
+1. 优化 hk-city-picker
