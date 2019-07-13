@@ -84,8 +84,8 @@ export default {
               const nodes = data.map(item => {
                 return {
                   id: item.id,
-                  name: item.name,
-                  leaf: node.level >= levelList.indexOf(this.level)
+                  name: item.name
+                  // leaf: node.level >= levelList.indexOf(this.level)
                 }
               })
               // 通过调用resolve将子节点数据返回，通知组件数据加载完成
