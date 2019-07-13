@@ -21,35 +21,29 @@ import hkTableColumnsFilter from './hk-table-columns-filter'
 import hkFilterTable from './hk-filter-table'
 import HKcard from './hk-card'
 
-const components = [
-  HkCountup,
-  HkForm,
-  HkEditor,
-  HkSearch,
-  HkButton,
-  HkScrollList,
-  HkPagination,
-  HkBreadcrumb,
-  HkTable,
-  hkTableToolbar,
-  HkUpload,
-  HkMap,
-  HkCityPicker,
-  HkProgress,
-  HkEcharts,
-  HkDialog,
-  HkPreview,
-  HkDatePicker,
-  HkPlayer,
-  hkTableColumnsFilter,
-  hkFilterTable,
-  HKcard
-]
-
 const install = Vue => {
-  components.forEach(item => {
-    Vue.component(item.name, item)
-  })
+  Vue.component(HkCountup.name, HkCountup)
+  Vue.component(HkForm.name, HkForm)
+  Vue.component(HkEditor.name, HkEditor)
+  Vue.component(HkSearch.name, HkSearch)
+  Vue.component(HkButton.name, HkButton)
+  Vue.component(HkScrollList.name, HkScrollList)
+  Vue.component(HkPagination.name, HkPagination)
+  Vue.component(HkBreadcrumb.name, HkBreadcrumb)
+  Vue.component(HkTable.name, HkTable)
+  Vue.component(hkTableToolbar.name, hkTableToolbar)
+  Vue.component(HkUpload.name, HkUpload)
+  Vue.component(HkMap.name, HkMap)
+  Vue.component(HkCityPicker.name, HkCityPicker)
+  Vue.component(HkProgress.name, HkProgress)
+  Vue.component(HkEcharts.name, HkEcharts)
+  Vue.component(HkDialog.name, HkDialog)
+  Vue.component(HkPreview.name, HkPreview)
+  Vue.component(HkDatePicker.name, HkDatePicker)
+  Vue.component(HkPlayer.name, HkPlayer)
+  Vue.component(hkTableColumnsFilter.name, hkTableColumnsFilter)
+  Vue.component(hkFilterTable.name, hkFilterTable)
+  Vue.component(HKcard.name, HKcard)
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

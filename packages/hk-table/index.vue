@@ -1,5 +1,6 @@
 <script>
-import lodash from 'lodash'
+import uniq from 'lodash/uniq'
+import compact from 'lodash/compact'
 
 export default {
   name: 'hk-table',
@@ -53,7 +54,12 @@ export default {
   computed: {
     pageSizes () {
       const pageSizes = [10, 20, 30, 40, 50, 100, this.size].sort((a, b) => a - b)
-      return lodash.uniq(lodash.compact(pageSizes))
+      return uniq(compact(pageSizes))
+    }
+  },
+  watch: {
+    tableData (val) {
+      this.data = val
     }
   },
   mounted () {
