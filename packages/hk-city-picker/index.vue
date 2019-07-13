@@ -1,27 +1,31 @@
 <template lang="pug">
-el-cascader.hk-city-picker(
-  v-model="model"
-  :options="options"
-  :props="defaultProps"
-  :clearable="clearable"
-  :filterable="filterable"
-  v-bind="$attrs"
-  v-on="$listeners"
-)
-  template(slot-scope="{ node, data }")
-    slot(:node="node" :data="data")
-  template(slot="empty")
-    slot(name="empty")
+  el-cascader.hk-city-picker(
+    ref="cascader"
+    v-model="model"
+    :props="defaultProps"
+    :clearable="clearable"
+    :filterable="filterable"
+    :class="{'dark-placeholder': this.showDefaultValue}"
+    :placeholder="this.showDefaultValue ? this.defaultValue : this.placeholder"
+    v-bind="$attrs"
+    v-on="$listeners"
+  )
+    template(slot-scope="{ node, data }")
+      slot(:node="node" :data="data")
+    template(slot="empty")
+      slot(name="empty")
 </template>
 
 <script>
+const levelList = ['province', 'city', 'district', 'street']
 export default {
   name: 'hk-city-picker',
   props: {
     value: [String, Array],
     level: {
+      type: String,
       validator: function (value) {
-        return ['province', 'city', 'district', 'street']
+        return levelList
       },
       default: 'district'
     },
@@ -46,11 +50,19 @@ export default {
     filterable: {
       type: Boolean,
       default: false
+    },
+    defaultValue: {
+      type: String,
+      default: ''
+    },
+    placeholder: {
+      type: [String, Array],
+      default: '请选择'
     }
   },
   data () {
     return {
-      options: []
+      showCascader: false
     }
   },
   computed: {
@@ -61,8 +73,26 @@ export default {
         children: 'area',
         // checkStrictly: true,
         emitPath: this.emitPath,
-        expandTrigger: 'hover',
+        expandTrigger: 'click',
         multiple: this.multiple,
+        lazy: true,
+        lazyLoad: (node, resolve) => {
+          let areaCode = node.value || ''
+          fetch(`https://uaa-openapi.hekr.me/lngAndLat/sub?areaCode=${areaCode}`)
+            .then(response => response.json())
+            .then(data => {
+              const nodes = data.map(item => {
+                return {
+                  id: item.id,
+                  name: item.name,
+                  leaf: node.level >= levelList.indexOf(this.level)
+                }
+              })
+              // 通过调用resolve将子节点数据返回，通知组件数据加载完成
+              resolve(nodes)
+            })
+            .catch(e => console.log('Oops, error', e))
+        },
         ...this.props
       }
     },
@@ -74,56 +104,38 @@ export default {
         this.$emit('input', val)
       }
     },
-    localKey () {
-      return `map-${this.level}`
+    showDefaultValue () {
+      return this.model && this.defaultValue
     }
   },
   mounted () {
-    setTimeout(() => {
-      this.getMap()
-    }, 0)
   },
   methods: {
-    getMap () {
-      let localMap = this.getLocal(this.localKey)
-      // 先从本地读取数据，本地没有拉取云端并存储本地
-      if (localMap) {
-        this.options = localMap
-      } else {
-        this.getArea()
-      }
-    },
-    getArea () {
-      let level = this.level.toUpperCase()
-      fetch(`https://uaa-openapi.hekr.me/lngAndLat/json?level=${level}`)
-        .then(response => response.json())
-        .then(data => {
-          this.options = data
-          this.setLocal(this.localKey, data)
-        })
-        .catch(e => console.log('Oops, error', e))
-    },
-    /**
-     * 读取本地缓存
-     */
-    getLocal (key) {
-      let info = localStorage.getItem(key)
-      if (info) {
-        try {
-          info = JSON.parse(info)
-        } catch (e) { }
-      }
-      if (info && typeof info === 'object') {
-        return info
-      }
-      return false
-    },
-    /**
-     * 设置本地缓存
-     */
-    setLocal (key, info) {
-      return localStorage.setItem(key, JSON.stringify(info))
-    }
   }
 }
 </script>
+<style lang="scss">
+.el-cascader.hk-city-picker {
+  // width: 100%;
+  &.dark-placeholder {
+    .el-input input {
+      &::-webkit-input-placeholder {
+        /* WebKit browsers */
+        color: #606266;
+      }
+      &:-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        color: #606266;
+      }
+      &::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        color: #606266;
+      }
+      &:-ms-input-placeholder {
+        /* Internet Explorer 10+ */
+        color: #606266;
+      }
+    }
+  }
+}
+</style>
