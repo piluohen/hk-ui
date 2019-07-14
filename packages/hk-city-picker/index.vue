@@ -62,7 +62,8 @@ export default {
   },
   data () {
     return {
-      showCascader: false
+      showCascader: false,
+      defaultModel: JSON.parse(JSON.stringify({ model: this.value }))
     }
   },
   computed: {
@@ -71,27 +72,13 @@ export default {
         value: 'id',
         label: 'name',
         children: 'area',
-        // checkStrictly: true,
+        checkStrictly: false,
         emitPath: this.emitPath,
         expandTrigger: 'click',
         multiple: this.multiple,
         lazy: true,
         lazyLoad: (node, resolve) => {
-          let areaCode = node.value || ''
-          fetch(`https://uaa-openapi.hekr.me/lngAndLat/sub?areaCode=${areaCode}`)
-            .then(response => response.json())
-            .then(data => {
-              const nodes = data.map(item => {
-                return {
-                  id: item.id,
-                  name: item.name,
-                  leaf: node.level >= levelList.indexOf(this.level)
-                }
-              })
-              // 通过调用resolve将子节点数据返回，通知组件数据加载完成
-              resolve(nodes)
-            })
-            .catch(e => console.log('Oops, error', e))
+          this.lazyLoad(node, resolve)
         },
         ...this.props
       }
@@ -111,6 +98,36 @@ export default {
   mounted () {
   },
   methods: {
+    lazyLoad (node, resolve) {
+      let areaCode = node.value || ''
+      fetch(`https://uaa-openapi.hekr.me/lngAndLat/sub?areaCode=${areaCode}`)
+        .then(response => response.json())
+        .then(data => {
+          const nodes = data.map(item => {
+            return {
+              id: item.id,
+              name: item.name,
+              leaf: node.level >= levelList.indexOf(this.level)
+            }
+          })
+          // 通过调用resolve将子节点数据返回，通知组件数据加载完成
+          resolve(nodes)
+        }).then(data => {
+          // if (node.level === 0 || areaCode === this.model) {
+          //   let defaultModel = this.defaultModel.model
+          //   this.model = this.createModel(defaultModel, node.level)
+          //   console.log(this.model)
+          // }
+        }).catch(e => console.log('Oops, error', e))
+    },
+    createModel (val, level) {
+      let index = (level + 1) * 2
+      let length = val.length
+      let start = val.substr(0, index)
+      let endNum = length - index + 1
+      let end = endNum > 0 ? (new Array(endNum)).join('0') : ''
+      return start + end
+    }
   }
 }
 </script>
