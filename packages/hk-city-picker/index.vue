@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import fetch from 'node-fetch'
 const levelList = ['province', 'city', 'district', 'street']
 export default {
   name: 'hk-city-picker',
