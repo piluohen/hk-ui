@@ -108,7 +108,7 @@ export default {
             return {
               id: item.id,
               name: item.name,
-              leaf: !item.hasSubArea
+              leaf: node.level >= levelList.indexOf(this.level) || !item.hasSubArea
             }
           })
           // 通过调用resolve将子节点数据返回，通知组件数据加载完成
