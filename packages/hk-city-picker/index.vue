@@ -101,14 +101,14 @@ export default {
   methods: {
     lazyLoad (node, resolve) {
       let areaCode = node.value || ''
-      fetch(`https://uaa-openapi.hekr.me/lngAndLat/sub?areaCode=${areaCode}`)
+      fetch(`https://test-uaa-openapi.hekr.me/lngAndLat/sub?areaCode=${areaCode}`)
         .then(response => response.json())
         .then(data => {
           const nodes = data.map(item => {
             return {
               id: item.id,
               name: item.name,
-              leaf: node.level >= levelList.indexOf(this.level)
+              leaf: !item.hasSubArea
             }
           })
           // 通过调用resolve将子节点数据返回，通知组件数据加载完成
@@ -134,7 +134,7 @@ export default {
 </script>
 <style lang="scss">
 .el-cascader.hk-city-picker {
-  // width: 100%;
+  width: 100%;
   &.dark-placeholder {
     .el-input input {
       &::-webkit-input-placeholder {
