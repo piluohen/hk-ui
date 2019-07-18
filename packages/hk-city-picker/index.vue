@@ -101,7 +101,7 @@ export default {
   methods: {
     lazyLoad (node, resolve) {
       let areaCode = node.value || ''
-      fetch(`https://test-uaa-openapi.hekr.me/lngAndLat/sub?areaCode=${areaCode}`)
+      fetch(`https://uaa-openapi.hekr.me/lngAndLat/sub?areaCode=${areaCode}`)
         .then(response => response.json())
         .then(data => {
           const nodes = data.map(item => {
