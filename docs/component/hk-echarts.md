@@ -1,4 +1,4 @@
-# hk-echarts组件
+# hk-echarts 图表组件
 
 > hk-echarts组件依赖于echarts。由于配置复杂多变，无法抽取公用组件，建议项目中根据需求定制业务组件。
 
