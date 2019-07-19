@@ -1,4 +1,4 @@
-# hk-preview 预览图片
+# hk-preview 预览图片组件
 
 ## 用法
 

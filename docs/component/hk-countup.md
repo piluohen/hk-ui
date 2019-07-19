@@ -1,4 +1,4 @@
-# hk-countup组件
+# hk-countup 动态数字组件
 
 ## 用法
 

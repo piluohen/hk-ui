@@ -1,4 +1,4 @@
-# hk-city-picker组件
+# hk-city-picker 省市区选择组件
 
 > hk-city-picker组件依赖于el-casader级联组件。
 

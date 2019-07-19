@@ -1,4 +1,4 @@
-# hk-progress组件
+# hk-progress 进度条组件
 
 > hk-progress组件依赖于el-progress组件，在el-progress组件基础上拓展了轨道颜色配置。
 

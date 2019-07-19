@@ -1,4 +1,4 @@
-# hk-dialog组件
+# hk-dialog 弹框组件
 
 > hk-dialog组件基于el-dialog组件
 
