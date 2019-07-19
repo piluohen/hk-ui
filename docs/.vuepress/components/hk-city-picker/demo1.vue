@@ -6,7 +6,7 @@ el-row.hk-city-picker-demo1(:gutter="20")
     p.code code: {{ code }}
   el-col(:span="12")
     p 双向绑定
-    hk-city-picker(v-model="code2" @change="change")
+    hk-city-picker(v-model="code2" defaultValue="北京市北京城区昌平区" @change="change")
     p.code code: {{ code2 }}
 </template>
 
@@ -16,7 +16,7 @@ export default {
   data () {
     return {
       code: '',
-      code2: '130202'
+      code2: '110114'
     }
   },
   mounted () {

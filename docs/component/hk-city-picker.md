@@ -78,6 +78,7 @@
 | collapse-tags | 多选模式是否折叠Tag | Boolean |  | false | false |
 | separator | 选项分隔符 | String |  |  | '/' |
 | filterable | 是否可搜索选项 | Boolean |  |  | false |
+| defaultValue | 默认值，用于回显文案 | String |  | false |  |
 
 ## Slots
 

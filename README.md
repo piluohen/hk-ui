@@ -79,3 +79,15 @@ GitLab：[http://gitlab.hekr.me/front-end/hk-ui](http://gitlab.hekr.me/front-end
 0.1.7
 
 1. 优化 hk-city-picker
+
+0.1.8
+
+1. hk-city-picker 省市区获取修改为接口获取，优化性能问题
+
+0.1.9
+
+1. 修复 hk-city-picker 最高选择街道，无街道的区无法选择的bug
+
+0.1.10
+
+1. 修改 hk-city-picker 请求接口
