@@ -1,4 +1,4 @@
-data部署到预发:
+部署到预发:
   script:
     - npm install --registry=http://npm.hekr.me
     - npm run build:test
