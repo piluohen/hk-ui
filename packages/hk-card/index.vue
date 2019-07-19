@@ -79,6 +79,7 @@ export default {
     }
   }
   .el-card__body {
+    height: 100%;
     padding: 0 !important;
     position: relative;
   }

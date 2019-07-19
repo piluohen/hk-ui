@@ -1,8 +1,11 @@
 <template lang="pug">
 .hk-map
-  .map(ref="map", :style="{height}" title="地址所在位置")
-  .input-address(v-if="showInput") 关键词：
-    input(id="keyword" name="keyword" type="text" onfocus='this.value=""')
+  .map(:ref="id", :style="{height}" title="地址所在位置")
+  .input-address(v-if="showInput")
+    span {{label}}
+    input.search(id="keyword" name="keyword" type="text" onfocus='this.value=""')
+    span.line.bottom
+    span.line.right
 </template>
 
 <script>
@@ -24,6 +27,16 @@ const getGeocodeApi = location => {
 export default {
   name: 'hk-map',
   props: {
+    id: {
+      type: String,
+      default: function () {
+        return 'map-' + +new Date() + ((Math.random() * 1000).toFixed(0))
+      }
+    },
+    label: {
+      type: String,
+      default: '关键词：'
+    },
     latitude: {
       type: [Number, String]
     },
@@ -53,6 +66,7 @@ export default {
   },
   data () {
     return {
+      map: null,
       markerClickValue: null
     }
   },
@@ -62,7 +76,7 @@ export default {
         this.$message.error(err.message)
         return
       }
-      this.map = new AMap.Map(this.$refs.map, {
+      this.map = new AMap.Map(this.$refs[this.id], {
         resizeEnable: true,
         center: this.lnglat,
         zoom: 13
@@ -139,7 +153,7 @@ export default {
       this.geocoder.getLocation(detailedAddress, (status, result) => {
         if (status === 'complete' && result.info === 'OK') {
           const geocodes = result.geocodes[0]
-          if (geocodes) this.map.setCenter(geocodes.location)
+          if (geocodes) this.map.setZoomAndCenter(13, geocodes.location)
         }
       })
     }
@@ -156,11 +170,76 @@ export default {
   .input-address {
     background-color: #fff;
     font-size: 12px;
-    padding: 5px;
     position: absolute;
+    padding: 5px;
     z-index: 999;
-    left: 10px;
-    top: 50px;
+    left: 0px;
+    top: 0px;
+  }
+  .search {
+    width: 15em;
+    padding: 0.35em 0.45em;
+    transition: background-color 0.3s ease-in-out;
+    -webkit-appearance: none;
+    background-color: rgb(255, 255, 255);
+    background-image: none;
+    border-radius: 4px;
+    border: 1px solid rgb(220, 223, 230);
+    box-sizing: border-box;
+    color: rgb(96, 98, 102);
+    display: inline-block;
+    font-size: inherit;
+    height: 30px;
+    line-height: 30px;
+    outline: none;
+    transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  .search:focus {
+    outline: none;
+  }
+  .search::placeholder {
+    color: hsla(0, 0%, 100%, 0.6);
+  }
+  .line {
+    position: absolute;
+    background-color: #008bdf;
+    transition: transform 0.5s ease;
+  }
+
+  .bottom,
+  .top {
+    height: 1px;
+    left: 0;
+    right: 0;
+    transform: scaleX(0);
+  }
+
+  .left,
+  .right {
+    width: 1px;
+    top: 0;
+    bottom: 0;
+    transform: scaleY(0);
+  }
+
+  .bottom {
+    bottom: 0;
+    transform-origin: bottom right;
+  }
+
+  .search:focus ~ .bottom {
+    transform-origin: bottom left;
+    transform: scaleX(1);
+  }
+
+  .right {
+    right: 0;
+    transform-origin: top right;
+  }
+
+  .search:focus ~ .right {
+    transform-origin: bottom right;
+    transform: scaleY(1);
   }
 }
 </style>
