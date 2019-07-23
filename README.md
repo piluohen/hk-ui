@@ -91,3 +91,8 @@ GitLab：[http://gitlab.hekr.me/front-end/hk-ui](http://gitlab.hekr.me/front-end
 0.1.10
 
 1. 修改 hk-city-picker 请求接口
+
+0.1.11
+
+1. 修复lodash高危漏洞
+2. 优化hk-map地图搜索样式
