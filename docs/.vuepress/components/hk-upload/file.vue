@@ -1,5 +1,5 @@
 <template lang="pug">
-.demo-upload-file
+.hk-upload-file
   hk-upload(
     v-model="fileList"
     type="file"
@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'demo-upload-file',
+  name: 'hk-upload-file',
   data () {
     return {
       action: `https://jsonplaceholder.typicode.com/posts/`,
@@ -22,8 +22,8 @@ export default {
         limitType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword'
       },
       fileList: [
-        {url: 'http://oss.htcxcloud.com/b6218936-f3ee-4385-9578-ce17ecee9429/新建 Microsoft Word 文档.docx', name: '新建 Microsoft Word 文档.docx'},
-        {url: 'http://oss.htcxcloud.com/bd1d396b-a7bb-4258-9c4e-435f149dfed8/文档一.docx', name: '文档一.docx'}
+        { url: 'http://oss.htcxcloud.com/b6218936-f3ee-4385-9578-ce17ecee9429/新建 Microsoft Word 文档.docx', name: '新建 Microsoft Word 文档.docx' },
+        { url: 'http://oss.htcxcloud.com/bd1d396b-a7bb-4258-9c4e-435f149dfed8/文档一.docx', name: '文档一.docx' }
       ],
       loading: false
     }
@@ -44,7 +44,7 @@ export default {
 </script>
 
 <style lang="scss">
-.demo-upload-file {
+.hk-upload-file {
   margin: 20px 0;
   .submit-btn {
     margin-top: 20px;

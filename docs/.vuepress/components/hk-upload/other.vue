@@ -1,5 +1,5 @@
 <template lang="pug">
-.demo-upload-other
+.hk-upload-other
   el-image.user-photos(:src="file" fit="cover")
   hk-upload(
     v-model="file"
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'demo-upload-other',
+  name: 'hk-upload-other',
   data () {
     return {
       action: `https://jsonplaceholder.typicode.com/posts/`,
@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style lang="scss">
-.demo-upload-other {
+.hk-upload-other {
   margin: 20px 0;
   .user-photos {
     width: 100px;

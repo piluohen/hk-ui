@@ -4,7 +4,7 @@
 
 
 <template>
-  <demo-pagination/>
+  <hk-pagination-demo/>
 </template>
 
 ```pug

@@ -5,7 +5,7 @@
 直接引入组件即可，根据当前路由生成面包屑
 
 <template>
-  <demo-breadcrumb/>
+  <hk-breadcrumb-demo/>
 </template>
 
 ```pug

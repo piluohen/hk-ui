@@ -3,7 +3,7 @@
 ## 用法
 
 <template>
-  <demo-scroll-list></demo-scroll-list>
+  <hk-scroll-list-demo/>
 </template>
 
 ```scss

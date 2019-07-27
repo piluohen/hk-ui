@@ -9,13 +9,13 @@
 适用于上传多个图片，图片可预览，可删除
 
 <template>
-  <demo-upload-picture></demo-upload-picture>
+  <hk-upload-picture></hk-upload-picture>
 </template>
 
 ```html
 
 <template lang="pug">
-.demo-upload-picture
+.hk-upload-picture
   hk-upload(
     v-model="fileList"
     type="picture"
@@ -28,7 +28,7 @@
 
 <script>
 export default {
-  name: 'demo-upload-picture',
+  name: 'hk-upload-picture',
   data () {
     return {
       action: `https://jsonplaceholder.typicode.com/posts/`,
@@ -69,13 +69,13 @@ export default {
 适用于上传多个文件，文件可删除
 
 <template>
-  <demo-upload-file></demo-upload-file>
+  <hk-upload-file></hk-upload-file>
 </template>
 
 ```html
 
 <template lang="pug">
-.demo-upload-file
+.hk-upload-file
   hk-upload(
     v-model="fileList"
     type="file"
@@ -88,7 +88,7 @@ export default {
 
 <script>
 export default {
-  name: 'demo-upload-file',
+  name: 'hk-upload-file',
   data () {
     return {
       action: `https://jsonplaceholder.typicode.com/posts/`,
@@ -126,13 +126,13 @@ export default {
 按钮上传通常为仅上传一次的的需求，如上传用户头像等
 
 <template>
-  <demo-upload-button></demo-upload-button>
+  <hk-upload-button></hk-upload-button>
 </template>
 
 ```html
 
 <template lang="pug">
-.demo-upload-button
+.hk-upload-button
   img.user-photos(:src="file")
   hk-upload(
     v-model="file"
@@ -145,7 +145,7 @@ export default {
 
 <script>
 export default {
-  name: 'demo-upload-button',
+  name: 'hk-upload-button',
   data () {
     return {
       action: `https://jsonplaceholder.typicode.com/posts/`,
@@ -185,13 +185,13 @@ export default {
 支持slot，可以自定义上传触发按钮
 
 <template>
-  <demo-upload-slot></demo-upload-slot>
+  <hk-upload-slot></hk-upload-slot>
 </template>
 
 ```html
 
 <template lang="pug">
-.demo-upload-slot
+.hk-upload-slot
   img.user-photos(:src="file")
   hk-upload(
     v-model="file"
@@ -205,7 +205,7 @@ export default {
 
 <script>
 export default {
-  name: 'demo-upload-slot',
+  name: 'hk-upload-slot',
   data () {
     return {
       action: `https://jsonplaceholder.typicode.com/posts/`,

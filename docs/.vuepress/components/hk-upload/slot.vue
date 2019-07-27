@@ -1,18 +1,20 @@
 <template lang="pug">
-.demo-upload-button
+.hk-upload-slot
   el-image.user-photos(:src="file" fit="cover")
   hk-upload(
     v-model="file"
     type="button"
     :action="action"
     :configs="configs"
+    :show-file-list="false"
     @complate="handleComplate"
   )
+    el-button(:loading="loading" :disabled="loading" type="warning") 这是一个很长的自定义上传触发按钮
 </template>
 
 <script>
 export default {
-  name: 'demo-upload-button',
+  name: 'hk-upload-slot',
   data () {
     return {
       action: `https://jsonplaceholder.typicode.com/posts/`,
@@ -34,7 +36,7 @@ export default {
 </script>
 
 <style lang="scss">
-.demo-upload-button {
+.hk-upload-slot {
   margin: 20px 0;
   .user-photos {
     width: 100px;

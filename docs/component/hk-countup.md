@@ -5,7 +5,7 @@
 默认用法，endVal 为必传
 
 <template>
-  <demo-countup></demo-countup>
+  <hk-countup-demo/>
 </template>
 
 

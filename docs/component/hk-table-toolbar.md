@@ -6,7 +6,7 @@
 配合hk-table使用，右侧表格操作去支持slot,自定义内容即可
 
 <template>
-  <demo-table-toolbar/>
+  <hk-table-toolbar-demo/>
 </template>
 
 ```pug
