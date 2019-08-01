@@ -206,7 +206,7 @@ export default {
                 align={item.align}
                 selectable={item.selectable}
                 reserve-selection={item.reserveSelection}
-                show-overflow-tooltip={item.showOverflowTooltip || true}
+                show-overflow-tooltip={item.showOverflowTooltip === false ? item.showOverflowTooltip : true}
               >
                 {render}
               </el-table-column>
