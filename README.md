@@ -96,3 +96,7 @@ GitLab：[http://gitlab.hekr.me/front-end/hk-ui](http://gitlab.hekr.me/front-end
 
 1. 修复lodash高危漏洞
 2. 优化hk-map地图搜索样式
+
+0.1.12
+
+1. 修复hk-table showOverflowTooltip 为false时不生效的bug
