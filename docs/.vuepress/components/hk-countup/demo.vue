@@ -1,7 +1,10 @@
 <template lang="pug">
 .demo-countup
   hk-countup(:endVal="endVal")
-  el-button(size="small" @click="handleChange") 改变随机值
+  el-button(
+    size="small"
+    @click="handleChange"
+  ) 改变随机值
 </template>
 
 <script>

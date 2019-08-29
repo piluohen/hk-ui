@@ -1,19 +1,39 @@
-<div align="center">
-<h1>hk-ui</h1>
-</div>
+# Hk-ui
 
+<div align="center">
+  <h1>hk-ui</h1>
+</div>
 <div align="center">
   <a><img src="https://img.shields.io/circleci/project/github/vuejs/vue/dev.svg" alt="Build Status"></a>
   <a><img src="https://img.shields.io/badge/language-vue-42b983.svg" alt="Language"></a>
   <a ><img src="https://img.shields.io/badge/license-MIT-000000.svg" alt="Version"></a>
   <br>
-    <a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu"></a>
+  <a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu"></a>
   <a href="https://hy.hekr.me/hk-ui/web/index.html"><img src="https://img.shields.io/badge/hk_ui@V1.0-blue.svg" alt="hk-ui"></a>
 </div>
 
+## 使用
+
+``` bash
+
+## 安装 npm 包
+
+npm install - S hk - ui
+
+## 项目引入css
+
+import "~hk-ui/lib/hu-ui.css";
+
+## 项目main.js引入组件, 全局引入
+
+import HkUi from 'hk-ui'
+
+Vue.use(HkUi)
+```
+
 ## 构建命令
 
-```bash
+``` bash
 # 安装依赖
 npm install
 
@@ -29,11 +49,11 @@ npm run lib
 
 ## 文档地址
 
-- 地址： https://hy.hekr.me/hk-ui/web/index.html
+* 地址： https://hy.hekr.me/hk-ui/web/index.html
 
 ## 项目目录
 
-```bash
+``` bash
 template
 ├─ docs
 │    └─ .vuepress            # 配置、演示组件、静态资源
@@ -53,20 +73,7 @@ template
 └─ package.json
 ```
 
-## 源码地址
-
-GitLab：[http://gitlab.hekr.me/front-end/hk-ui](http://gitlab.hekr.me/front-end/hk-ui)
-
 ## 版本说明
-
-0.1.1
-基础版本
-
-0.1.2
-
-0.1.3
-
-0.1.4
 
 0.1.5
 
@@ -100,3 +107,4 @@ GitLab：[http://gitlab.hekr.me/front-end/hk-ui](http://gitlab.hekr.me/front-end
 0.1.12
 
 1. 修复hk-table showOverflowTooltip 为false时不生效的bug
+

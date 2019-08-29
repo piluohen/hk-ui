@@ -1,6 +1,11 @@
 {
   "name": "hk-ui",
   "version": "0.1.12",
+  "author": {
+    "name": "piluohen<1012106967@qq.com>"
+  },
+  "homepage": "https://github.com/piluohen/hk-ui",
+  "repository": "https://github.com/piluohen/hk-ui",
   "description": "A Component Library Base Element-ui for Vue.js.",
   "keywords": [
     "element-ui",
