@@ -108,3 +108,8 @@ template
 
 1. 修复hk-table showOverflowTooltip 为false时不生效的bug
 
+0.1.13
+
+1. 修改文档
+2. 升级依赖
+
