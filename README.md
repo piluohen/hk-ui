@@ -18,7 +18,7 @@
 
 ## 安装 npm 包
 
-npm install - S hk - ui
+npm install -S hk-ui
 
 ## 项目引入css
 
